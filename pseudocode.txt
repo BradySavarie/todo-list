@@ -1,0 +1,21 @@
+Okay this will be a brainstorming session to try to understand how to move forward with the todo list project.
+
+First of all I would like to start this project off by creating a console version of the todo-list, and then once that logic is complete I will implement a screenController module. This means I can ignore tailwind/sass for now however I will need to configure webpack still so that I can write my javascript as modules.
+
+not sure where to start with my logic so I will try listing out ideas of what components need to be present in the application.
+
+To start, I will definitely need a way to create a todo-item. I can create a TodoItem class in order to accomplish this. What will be inside the class exactly? Well, the first thing I am going to need is a constructor. The constructor will need to gather information from the user in order to create a todo item. The required information will be title, description, dueDate, and priority. dueDate will need to go through a formatting process so that it can be handled consistently. Priority will be either 0, 1, or 2 which indicate low, medium, or high. I want each todoItem to have a 'completed' property that is initialized as false and can be toggled once the UI is built. 
+
+I will need a way to get each items details so that the screenController can display them on request, a deleteItem option to remove it from the array it is stored in (a todoItems array?), and an edit details array to change any value within the item. 
+
+A module called app.js that contains all application logic (creating new todoItems, storing them in projects, editing them, deleting them, etc.). A module called screenController.js that takes information from the user and updates the display once processed by app.js. 
+
+// important object role stereotypes below
+
+Information holder – an object designed to know certain information and provide that information to other objects.
+Structurer – an object that maintains relationships between objects and information about those relationships.
+Service provider – an object that performs specific work and offers services to others on demand.
+Controller – an object designed to make decisions and control a complex task.
+Coordinator – an object that doesn’t make many decisions but, in a rote or mechanical way, delegates work to other objects.
+Interfacer – an object that transforms information or requests between distinct parts of a system.
+
