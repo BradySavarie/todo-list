@@ -1,8 +1,10 @@
-    To start, I will definitely need a way to create a todo-item. I can create a TodoItem class in order to accomplish this. What will be inside the class exactly? Well, the first thing I am going to need is a constructor. The constructor will need to gather information from the user in order to create a todo item. The required information will be title, description, dueDate, and priority. dueDate will need to go through a formatting process so that it can be handled consistently. Priority will be either 0, 1, or 2 which indicate low, medium, or high. I want each todoItem to have a 'completed' property that is initialized as false and can be toggled once the UI is built. 
+app.js will setup the default state of the todo-list application. and maybe do more.. dunno yet
 
-I will need a way to get each items details so that the screenController can display them on request, a deleteItem option to remove it from the array it is stored in (a todoItems array?), and an edit details method to change any value within the item. 
+Projects.js will create, read, update, and delete project objects. These objects will be instantiated using a Projects class. 
 
-A module called app.js can exist as a main point of contact to manage the relationships between the project and task modules. Each of these modules are capable of creating, reading, updating, and deleting either projects or tasks. A module called screenController.js will take user input and deliver it to the proper module, and then once the results are processed it will render the output.
+Tasks.js will create, read, update, and delete task objects. These objects will be instantiated using a Tasks class. Inside of the class will be a constructor. The constructor will take title, description, dueDate, and priority as input. dueDate will need to go through a formatting process so that it can be handled consistently. Priority will be either 0, 1, or 2 which indicate low, medium, or high. I want each task to have a 'completed' property that is initialized as false and can be toggled once the UI is built. 
+
+A module called screenController.js will take user input and deliver it to the proper module, and then once the results are processed it will render the output.
 
 // important object role stereotypes below
 
