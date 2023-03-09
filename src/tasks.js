@@ -13,9 +13,9 @@ class Task {
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.completed = false;
         this.tasksIndex = tasksIndex;
         this.projectsIndex = projectsIndex;
+        this.completed = false;
     }
 }
 
@@ -38,6 +38,3 @@ function create(
         )
     );
 }
-
-create('something', 'anything', 123, 0, 0, 0);
-console.log(tasks);
