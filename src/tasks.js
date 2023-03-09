@@ -1,4 +1,4 @@
-const tasks = [];
+import { projectsList, createProject, readProject } from './projects';
 
 class Task {
     constructor(
@@ -19,7 +19,7 @@ class Task {
     }
 }
 
-function create(
+function createTask(
     title,
     description,
     dueDate,
@@ -27,14 +27,15 @@ function create(
     tasksIndex,
     projectsIndex
 ) {
-    tasks.push(
-        new Task(
-            title,
-            description,
-            dueDate,
-            priority,
-            tasksIndex,
-            projectsIndex
-        )
+    const newTask = new Task(
+        title,
+        description,
+        dueDate,
+        priority,
+        tasksIndex,
+        projectsIndex
     );
+    projectsList[projectsIndex].tasks.push(newTask);
 }
+
+export { createTask };

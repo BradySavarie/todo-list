@@ -1,4 +1,4 @@
-const projects = [];
+const projectsList = [];
 
 class Project {
     constructor(title, description) {
@@ -8,11 +8,13 @@ class Project {
     }
 }
 
-function create(title, description) {
+function createProject(title, description) {
     const newProject = new Project(title, description);
-    projects.push(newProject);
+    projectsList.push(newProject);
 }
 
-console.log(projects);
-create('blah', 'bleh');
-console.log(projects);
+function readProject() {
+    console.log('read');
+}
+
+export { projectsList, createProject, readProject };
