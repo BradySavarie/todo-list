@@ -1,17 +1,16 @@
-app.js will setup the default state of the todo-list application. and maybe do more.. dunno yet
+app.js will setup the default state of the todo-list application.
 
-Projects.js will create, read, update, and delete project objects. These objects will be instantiated using a Projects class. 
+The projects.js and tasks.js modules will create, read, update, and delete objects. 
 
-Tasks.js will create, read, update, and delete task objects. These objects will be instantiated using a Tasks class. Inside of the class will be a constructor. The constructor will take title, description, dueDate, and priority as input. dueDate will need to go through a formatting process so that it can be handled consistently. Priority will be either 0, 1, or 2 which indicate low, medium, or high. I want each task to have a 'completed' property that is initialized as false and can be toggled once the UI is built. 
+A module called handlers.js will retrieve, validate, and export user input
 
-A module called screenController.js will take user input and deliver it to the proper module, and then once the results are processed it will render the output.
+a module called UI.js will update the DOM and render output
 
-// important object role stereotypes below
+Next steps:
 
-Information holder – an object designed to know certain information and provide that information to other objects.
-Structurer – an object that maintains relationships between objects and information about those relationships.
-Service provider – an object that performs specific work and offers services to others on demand.
-Controller – an object designed to make decisions and control a complex task.
-Coordinator – an object that doesn’t make many decisions but, in a rote or mechanical way, delegates work to other objects.
-Interfacer – an object that transforms information or requests between distinct parts of a system.
-
+- Make read, update, and delete functions
+- Setup app.js default logic state
+- Ensure all logic is functional
+- Write default HTML
+- Setup handlers.js to retrieve and distribute input
+- Get UI.js to update and render DOM
