@@ -8,9 +8,31 @@ a module called UI.js will update the DOM and render output
 
 Next steps:
 
-- Make read, update, and delete functions
-- Setup app.js default logic state
-- Ensure all logic is functional
-- Write default HTML
-- Setup handlers.js to retrieve and distribute input
-- Get UI.js to update and render DOM
+Onload:
+    - Default project is created
+    - Default task is inserted into default project
+    - Default styling is rendered
+
+Events:
+
+    enterNewProjectBtn
+        - newProjectModal is displayed and contains a form to retrieve input
+
+        submitNewProjectBtn
+            - createProject is called with user info as input
+            - new empty project is displayed in main container and is the new current selection
+
+    deleteProjectBtn
+        - Currently selected project is removed from array
+        - if projectsList === 0 display no projects message, else make first project in array the new current selection
+
+    enterNewTaskBtn
+        - newTaskModal is displayed and contains a form to retrieve input
+        
+        submitNewTaskBtn
+            - createTask is called with user info as input and the projectIndex set to the currently selected project
+            - new task is displayed in main container
+    
+
+    
+
