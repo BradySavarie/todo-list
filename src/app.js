@@ -1,4 +1,5 @@
 import './styles.css';
+import './handlers';
 import { createProject, projectsList } from './projects';
 import { createTask } from './tasks';
 
