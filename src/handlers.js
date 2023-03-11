@@ -1,5 +1,8 @@
-import { readProject } from './projects';
-import { displayNewProjectModal, displayReadProjectModal } from './UI';
+import {
+    openNewProjectModal,
+    openReadProjectModal,
+    openDeleteProjectModal,
+} from './UI';
 
 const content = document.getElementById('content');
 
@@ -7,11 +10,14 @@ content.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
 
     switch (element) {
-        case 'enterNewProjectBtn':
-            displayNewProjectModal();
+        case 'openNewProjectModalBtn':
+            openNewProjectModal();
             break;
-        case 'readProjectBtn':
-            displayReadProjectModal();
+        case 'openReadProjectModalBtn':
+            openReadProjectModal();
+            break;
+        case 'openDeleteProjectModalBtn':
+            openDeleteProjectModal();
             break;
         default:
             console.log('default');

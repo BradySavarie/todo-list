@@ -1,12 +1,16 @@
 import { readProject } from './projects';
 
-function displayNewProjectModal() {
+function openNewProjectModal() {
     console.log('New Project Modal Opened');
 }
 
-function displayReadProjectModal() {
+function openReadProjectModal() {
     readProject();
     console.log('Read Project Modal Opened');
 }
 
-export { displayNewProjectModal, displayReadProjectModal };
+function openDeleteProjectModal() {
+    console.log('Delete Project Modal Opened');
+}
+
+export { openNewProjectModal, openReadProjectModal, openDeleteProjectModal };

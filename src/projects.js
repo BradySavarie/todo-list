@@ -17,4 +17,8 @@ function readProject() {
     console.log('Project information Returned');
 }
 
+function deleteProject() {
+    console.log('Project Deleted');
+}
+
 export { projectsList, createProject, readProject };

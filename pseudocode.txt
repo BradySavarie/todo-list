@@ -13,7 +13,7 @@ Onload:
     - Default task is inserted into default project
     - Default styling is rendered
 
-** Use a switch statement to check for ID's in handlers.js **
+** Use a switch statement to check for data attributes in handlers.js **
 
 Click Events:
 
