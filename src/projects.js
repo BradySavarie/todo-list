@@ -14,7 +14,7 @@ function createProject(title, description) {
 }
 
 function readProject() {
-    console.log('read');
+    console.log('Project information Returned');
 }
 
 export { projectsList, createProject, readProject };
