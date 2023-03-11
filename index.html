@@ -19,19 +19,32 @@
             <div>
                 <h1>Projects</h1>
                 <div>
-                    <h1>Title</h1>
-                    <p>Description</p>
-                    <button data-element="readProjectBtn">View</button>
-                    <button data-element="deleteProjectBtn">Delete</button>
+                    <h1>Project Title</h1>
+                    <p>Project Description</p>
+                    <button data-element="openReadProjectModalBtn">
+                        View Project
+                    </button>
+                    <button data-element="openDeleteProjectModalBtn">
+                        Delete Project
+                    </button>
                 </div>
-                <button data-element="enterNewProjectBtn">+</button>
+                <button data-element="openNewProjectModalBtn">+</button>
             </div>
 
             <!-- Main -->
             <div>
-                <h1>Current Project</h1>
+                <h1>Selected Project</h1>
                 <h2>Tasks</h2>
-                <div></div>
+                <div>
+                    <h1>Task Title</h1>
+                    <p>Task Description</p>
+                    <button data-element="openReadTaskModalBtn">
+                        View Task
+                    </button>
+                    <button data-element="openDeleteTaskModalBtn">
+                        Delete Task
+                    </button>
+                </div>
                 <button id="newTaskBtn">+</button>
             </div>
         </div>
