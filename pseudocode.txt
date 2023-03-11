@@ -18,20 +18,29 @@ Events:
     enterNewProjectBtn
         - newProjectModal is displayed and contains a form to retrieve input
 
-        submitNewProjectBtn
+        createNewProjectBtn
             - createProject is called with user info as input
-            - new empty project is displayed in main container and is the new current selection
+            - new empty project is displayed in main container and is set to the current selection
+
+    readProjectBtn
+        - readProjectModal is displayed and contains a form that is pre-filled with current project information and accepts edits
+        
+        updateProjectBtn
+            - Change information within currently selected project to the users input
+            - Render updated project to main container
 
     deleteProjectBtn
         - Currently selected project is removed from array
-        - if projectsList === 0 display no projects message, else make first project in array the new current selection
+        - if projectsList.length === 0 display no projects message, else set the first project in array to the current selection and display contents
 
     enterNewTaskBtn
         - newTaskModal is displayed and contains a form to retrieve input
-        
-        submitNewTaskBtn
+
+        createNewTaskBtn
             - createTask is called with user info as input and the projectIndex set to the currently selected project
             - new task is displayed in main container
+
+    
     
 
     
