@@ -43,6 +43,21 @@ Click Events:
             - new task is displayed in main container
 
     
+    Okay! So now I need to:
+        - Create the project and task modals that open on click. I can style them later
+        - Attach listeners to the modal submit buttons
+        - Write function logic that responds to the submit buttons
+        - Important place to start with logic could be just the create functions
+        - Once items can be created I will focus on deleting them
+        - Once that is done I can add the update function in
+        - At this point i'll need to figure out project switching functionality to display only the active project with its contents
+        - I can then include "mark as complete" functionality to the tasks
+        - All the main logic should be ready by this point to start thinking about styling
+        - Start with only the default load up, hide everything else
+        - style the modals afterwards
+        - now style the page when contents have been added in
+
+    
     
 
     
