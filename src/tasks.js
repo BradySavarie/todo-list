@@ -38,4 +38,8 @@ function createTask(
     projectsList[projectsIndex].tasks.push(newTask);
 }
 
-export { createTask };
+function readTask() {
+    console.log('Task information returned');
+}
+
+export { createTask, readTask };

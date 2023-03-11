@@ -2,11 +2,15 @@ import {
     openNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
+    openNewTaskModal,
+    openReadTaskModal,
+    openDeleteTaskModal,
 } from './UI';
 
-const content = document.getElementById('content');
+const sidebar = document.getElementById('sidebar');
+const main = document.getElementById('main');
 
-content.addEventListener('click', (e) => {
+sidebar.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
 
     switch (element) {
@@ -20,6 +24,24 @@ content.addEventListener('click', (e) => {
             openDeleteProjectModal();
             break;
         default:
-            console.log('default');
+            console.log('default project message');
+    }
+});
+
+main.addEventListener('click', (e) => {
+    const element = e.target.getAttribute('data-element');
+
+    switch (element) {
+        case 'openNewTaskModalBtn':
+            openNewTaskModal();
+            break;
+        case 'openReadTaskModalBtn':
+            openReadTaskModal();
+            break;
+        case 'openDeleteTaskModalBtn':
+            openDeleteTaskModal();
+            break;
+        default:
+            console.log('default task message');
     }
 });
