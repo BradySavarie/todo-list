@@ -1,3 +1,4 @@
+import './styles.css';
 import { createProject, projectsList } from './projects';
 import { createTask } from './tasks';
 
