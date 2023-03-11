@@ -13,7 +13,9 @@ Onload:
     - Default task is inserted into default project
     - Default styling is rendered
 
-Events:
+** Use a switch statement to check for ID's in handlers.js **
+
+Click Events:
 
     enterNewProjectBtn
         - newProjectModal is displayed and contains a form to retrieve input
