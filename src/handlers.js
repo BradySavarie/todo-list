@@ -8,6 +8,8 @@ import {
     getProjectFormData,
     getTaskFormData,
 } from './UI';
+import { projectsList, createProject } from './projects';
+import { createTask } from './tasks';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');
@@ -53,9 +55,12 @@ main.addEventListener('click', (e) => {
 createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
+    createProject(title, description);
+    console.log(projectsList);
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description, dueDate, priority] = getTaskFormData(e.target);
+    createTask(title, description, dueDate, priority);
 });
