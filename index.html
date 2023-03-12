@@ -10,13 +10,13 @@
     <body>
         <div id="content">
             <!-- Header -->
-            <div>
+            <div id="header" class="outline">
                 <!-- Logo -->
                 <h1>Project Name</h1>
             </div>
 
             <!-- Sidebar -->
-            <div id="sidebar">
+            <div id="sidebar" class="outline">
                 <h1>Projects</h1>
                 <div id="projectsContainer">
                     <div>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Main -->
-            <div id="main">
+            <div id="main" class="outline">
                 <h1>Selected Project</h1>
                 <h2>Tasks</h2>
                 <div id="tasksContainer">
@@ -50,6 +50,26 @@
                     </div>
                 </div>
                 <button data-element="openNewTaskModalBtn">+</button>
+            </div>
+
+            <!-- Create New Project Modal -->
+            <div id="createNewProjectModal" class="outline hidden">
+                <form action="#" id="createNewProjectForm">
+                    <div>
+                        <input type="text" name="title" placeholder="title" />
+                        <input
+                            type="text"
+                            name="description"
+                            placeholder="description"
+                        />
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Create New Task Modal -->
+            <div id="createNewTaskModal" class="outline hidden">
+                <form action="#" id="createNewTaskForm"></form>
             </div>
         </div>
     </body>
