@@ -50,6 +50,7 @@ function openReadTaskModal() {
 function openDeleteTaskModal() {
     console.log('Delete Task Modal Opened');
 }
+
 export {
     openNewProjectModal,
     openReadProjectModal,

@@ -77,16 +77,14 @@
                             name="description"
                             placeholder="description"
                         />
-                        <input
-                            type="text"
-                            name="dueDate"
-                            placeholder="dueDate"
-                        />
-                        <input
-                            type="text"
-                            name="priority"
-                            placeholder="priority"
-                        />
+                        <label for="dueDate">Due Date:</label>
+                        <input type="date" name="dueDate" id="dueDate" />
+                        <label for="priority">Priority:</label>
+                        <select name="priority" id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
                         <button type="submit">Add</button>
                     </div>
                 </form>
