@@ -1,8 +1,18 @@
 import { readProject } from './projects';
 import { readTask } from './tasks';
 
+function getProjectFormData(form) {
+    const projectFormData = new FormData(form);
+    const [titlePair, descriptionPair] = projectFormData.entries();
+    const values = [titlePair[1], descriptionPair[1]];
+    return values;
+}
+
 function openNewProjectModal() {
-    console.log('New Project Modal Opened');
+    const createNewProjectModal = document.getElementById(
+        'createNewProjectModal'
+    );
+    createNewProjectModal.classList.remove('hidden');
 }
 
 function openReadProjectModal() {
@@ -33,4 +43,5 @@ export {
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
+    getProjectFormData,
 };

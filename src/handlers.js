@@ -5,10 +5,12 @@ import {
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
+    getProjectFormData,
 } from './UI';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');
+const createNewProjectForm = document.getElementById('createNewProjectForm');
 
 sidebar.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
@@ -45,3 +47,12 @@ main.addEventListener('click', (e) => {
             console.log('default task message');
     }
 });
+
+createNewProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const [title, description] = getProjectFormData(e.target);
+});
+
+/* createNewTaskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+}); */
