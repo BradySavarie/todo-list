@@ -24,8 +24,22 @@ function openDeleteProjectModal() {
     console.log('Delete Project Modal Opened');
 }
 
+function getTaskFormData(form) {
+    const taskFormData = new FormData(form);
+    const [titlePair, descriptionPair, dueDatePair, priorityPair] =
+        taskFormData.entries();
+    const values = [
+        titlePair[1],
+        descriptionPair[1],
+        dueDatePair[1],
+        priorityPair[1],
+    ];
+    return values;
+}
+
 function openNewTaskModal() {
-    console.log('New Task Modal Opened');
+    const createNewTaskModal = document.getElementById('createNewTaskModal');
+    createNewTaskModal.classList.remove('hidden');
 }
 
 function openReadTaskModal() {
@@ -44,4 +58,5 @@ export {
     openReadTaskModal,
     openDeleteTaskModal,
     getProjectFormData,
+    getTaskFormData,
 };

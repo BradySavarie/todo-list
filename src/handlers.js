@@ -6,11 +6,13 @@ import {
     openReadTaskModal,
     openDeleteTaskModal,
     getProjectFormData,
+    getTaskFormData,
 } from './UI';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
+const createNewTaskForm = document.getElementById('createNewTaskForm');
 
 sidebar.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
@@ -53,6 +55,7 @@ createNewProjectForm.addEventListener('submit', (e) => {
     const [title, description] = getProjectFormData(e.target);
 });
 
-/* createNewTaskForm.addEventListener('submit', (e) => {
+createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-}); */
+    const [title, description, dueDate, priority] = getTaskFormData(e.target);
+});
