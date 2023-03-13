@@ -1,13 +1,6 @@
 import { projectsList, readProject } from './projects';
 import { readTask } from './tasks';
 
-function getProjectFormData(form) {
-    const projectFormData = new FormData(form);
-    const [titlePair, descriptionPair] = projectFormData.entries();
-    const values = [titlePair[1], descriptionPair[1]];
-    return values;
-}
-
 function openNewProjectModal() {
     const createNewProjectModal = document.getElementById(
         'createNewProjectModal'
@@ -39,19 +32,6 @@ function renderNewProjectCard(projectsIndex) {
     projectsContainer.appendChild(newProjectCard);
 }
 
-function getTaskFormData(form) {
-    const taskFormData = new FormData(form);
-    const [titlePair, descriptionPair, dueDatePair, priorityPair] =
-        taskFormData.entries();
-    const values = [
-        titlePair[1],
-        descriptionPair[1],
-        dueDatePair[1],
-        priorityPair[1],
-    ];
-    return values;
-}
-
 function openNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     createNewTaskModal.classList.remove('hidden');
@@ -73,7 +53,5 @@ export {
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
-    getProjectFormData,
-    getTaskFormData,
     renderNewProjectCard,
 };

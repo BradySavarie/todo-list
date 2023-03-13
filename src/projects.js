@@ -30,10 +30,18 @@ function setActiveProject(project) {
     activeProject = project;
 }
 
+function getProjectFormData(form) {
+    const projectFormData = new FormData(form);
+    const [titlePair, descriptionPair] = projectFormData.entries();
+    const values = [titlePair[1], descriptionPair[1]];
+    return values;
+}
+
 export {
     projectsList,
     setActiveProject,
     getActiveProject,
     createProject,
     readProject,
+    getProjectFormData,
 };

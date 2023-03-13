@@ -5,8 +5,6 @@ import {
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
-    getProjectFormData,
-    getTaskFormData,
     renderNewProjectCard,
 } from './UI';
 import {
@@ -14,7 +12,9 @@ import {
     setActiveProject,
     getActiveProject,
     createProject,
+    getProjectFormData,
 } from './projects';
+import { getTaskFormData } from './tasks';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');

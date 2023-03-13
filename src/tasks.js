@@ -42,4 +42,17 @@ function readTask() {
     console.log('Task information returned');
 }
 
-export { createTask, readTask };
+function getTaskFormData(form) {
+    const taskFormData = new FormData(form);
+    const [titlePair, descriptionPair, dueDatePair, priorityPair] =
+        taskFormData.entries();
+    const values = [
+        titlePair[1],
+        descriptionPair[1],
+        dueDatePair[1],
+        priorityPair[1],
+    ];
+    return values;
+}
+
+export { createTask, readTask, getTaskFormData };
