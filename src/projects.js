@@ -26,8 +26,8 @@ function getActiveProject() {
     return activeProject;
 }
 
-function setActiveProject(projectsIndex) {
-    activeProject = projectsList[projectsIndex];
+function setActiveProject(project) {
+    activeProject = project;
 }
 
 export {

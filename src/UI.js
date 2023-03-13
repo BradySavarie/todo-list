@@ -1,4 +1,4 @@
-import { readProject } from './projects';
+import { projectsList, readProject } from './projects';
 import { readTask } from './tasks';
 
 function getProjectFormData(form) {
@@ -22,6 +22,21 @@ function openReadProjectModal() {
 
 function openDeleteProjectModal() {
     console.log('Delete Project Modal Opened');
+}
+
+function renderNewProjectCard(projectsIndex) {
+    const projectsContainer = document.getElementById('projectsContainer');
+    const newProjectCard = document.createElement('div');
+
+    newProjectCard.innerHTML = `<button data-projectsIndex="${projectsIndex}">Project Title</button>
+                        <p>Project Description</p>
+                        <button data-element="openReadProjectModalBtn">
+                            View Project
+                        </button>
+                        <button data-element="openDeleteProjectModalBtn">
+                            Delete Project
+                        </button>`;
+    projectsContainer.appendChild(newProjectCard);
 }
 
 function getTaskFormData(form) {
@@ -60,4 +75,5 @@ export {
     openDeleteTaskModal,
     getProjectFormData,
     getTaskFormData,
+    renderNewProjectCard,
 };

@@ -7,8 +7,14 @@ import {
     openDeleteTaskModal,
     getProjectFormData,
     getTaskFormData,
+    renderNewProjectCard,
 } from './UI';
-import { projectsList, setActiveProject, createProject } from './projects';
+import {
+    projectsList,
+    setActiveProject,
+    getActiveProject,
+    createProject,
+} from './projects';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');
@@ -34,7 +40,7 @@ sidebar.addEventListener('click', (e) => {
                 console.log('default project message');
         }
     } else if (projectsIndex) {
-        setActiveProject(projectsIndex);
+        setActiveProject(projectsList[projectsIndex]);
     }
 });
 
@@ -60,7 +66,8 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
     createProject(title, description);
-    console.log(projectsList);
+    renderNewProjectCard(projectsList.length - 1);
+    setActiveProject(projectsList[projectsList.length - 1]);
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
