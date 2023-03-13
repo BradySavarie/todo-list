@@ -58,9 +58,9 @@ Click Events:
     Active Project Logic:
         Goal: When a new project is created or an existing project is clicked on it is set to the active project and displayed
 
-        - When createNewProject is invoked an activeProject property is initialized to true
-        - A setActiveProject function is invoked next. It's input is the newly created project or the project that was clicked. It iterates through the projectsList array and sets all activeProject values to false unless it matches the input. 
-        
+    - an activeProject variable will contain a reference to a recently created or clicked on project. It will be used to identify which project to display and attach new tasks to. New tasks will be added by saying activeProject.tasks.push()
+    - setActiveProject will be triggered when createNewProject is invoked or an existing task is clicked on.
+    - When a project is created a card with the information will be displayed. Each project card will be given a data attribute that corresponds to the index of the projectsList array that its project object resides at. When a project is clicked the data attribute value gets plugged into the index number of the projectsList array and the resulting object is set as the activeProject variable. 
 
     
     

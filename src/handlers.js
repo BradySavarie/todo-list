@@ -8,8 +8,7 @@ import {
     getProjectFormData,
     getTaskFormData,
 } from './UI';
-import { projectsList, createProject } from './projects';
-import { createTask } from './tasks';
+import { projectsList, setActiveProject, createProject } from './projects';
 
 const sidebar = document.getElementById('sidebar');
 const main = document.getElementById('main');
@@ -18,19 +17,24 @@ const createNewTaskForm = document.getElementById('createNewTaskForm');
 
 sidebar.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
+    const projectsIndex = e.target.getAttribute('data-projectsIndex');
 
-    switch (element) {
-        case 'openNewProjectModalBtn':
-            openNewProjectModal();
-            break;
-        case 'openReadProjectModalBtn':
-            openReadProjectModal();
-            break;
-        case 'openDeleteProjectModalBtn':
-            openDeleteProjectModal();
-            break;
-        default:
-            console.log('default project message');
+    if (element) {
+        switch (element) {
+            case 'openNewProjectModalBtn':
+                openNewProjectModal();
+                break;
+            case 'openReadProjectModalBtn':
+                openReadProjectModal();
+                break;
+            case 'openDeleteProjectModalBtn':
+                openDeleteProjectModal();
+                break;
+            default:
+                console.log('default project message');
+        }
+    } else if (projectsIndex) {
+        setActiveProject(projectsIndex);
     }
 });
 
@@ -62,5 +66,4 @@ createNewProjectForm.addEventListener('submit', (e) => {
 createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description, dueDate, priority] = getTaskFormData(e.target);
-    createTask(title, description, dueDate, priority);
 });

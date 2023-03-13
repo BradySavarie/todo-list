@@ -1,4 +1,5 @@
 const projectsList = [];
+let activeProject = projectsList;
 
 class Project {
     constructor(title, description) {
@@ -21,4 +22,18 @@ function deleteProject() {
     console.log('Project Deleted');
 }
 
-export { projectsList, createProject, readProject };
+function getActiveProject() {
+    return activeProject;
+}
+
+function setActiveProject(projectsIndex) {
+    activeProject = projectsList[projectsIndex];
+}
+
+export {
+    projectsList,
+    setActiveProject,
+    getActiveProject,
+    createProject,
+    readProject,
+};
