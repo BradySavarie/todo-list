@@ -32,6 +32,21 @@ function renderNewProjectCard(projectsIndex) {
     projectsContainer.appendChild(newProjectCard);
 }
 
+function renderNewTaskCard() {
+    const tasksContainer = document.getElementById('tasksContainer');
+    const newTaskCard = document.createElement('div');
+
+    newTaskCard.innerHTML = `<h1>Task Title</h1>
+                        <p>Task Description</p>
+                        <button data-element="openReadTaskModalBtn">
+                            View Task
+                        </button>
+                        <button data-element="openDeleteTaskModalBtn">
+                            Delete Task
+                        </button>`;
+    tasksContainer.appendChild(newTaskCard);
+}
+
 function openNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     createNewTaskModal.classList.remove('hidden');
@@ -50,8 +65,9 @@ export {
     openNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
+    renderNewProjectCard,
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
-    renderNewProjectCard,
+    renderNewTaskCard,
 };

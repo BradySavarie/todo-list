@@ -1,5 +1,6 @@
 const projectsList = [];
-let activeProject = projectsList;
+let activeProject = {};
+let activeProjectIndex = 0;
 
 class Project {
     constructor(title, description) {
@@ -22,12 +23,17 @@ function deleteProject() {
     console.log('Project Deleted');
 }
 
+function setActiveProject(project, index) {
+    activeProject = project;
+    activeProjectIndex = index;
+}
+
 function getActiveProject() {
     return activeProject;
 }
 
-function setActiveProject(project) {
-    activeProject = project;
+function getActiveProjectIndex() {
+    return activeProjectIndex;
 }
 
 function getProjectFormData(form) {
@@ -41,6 +47,7 @@ export {
     projectsList,
     setActiveProject,
     getActiveProject,
+    getActiveProjectIndex,
     createProject,
     readProject,
     getProjectFormData,
