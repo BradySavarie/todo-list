@@ -19,6 +19,10 @@ function readProject() {
     console.log('Project information Returned');
 }
 
+function updateProject() {
+    console.log('Project updated');
+}
+
 function deleteProject() {
     console.log('Project Deleted');
 }
@@ -50,5 +54,7 @@ export {
     getActiveProjectIndex,
     createProject,
     readProject,
+    updateProject,
+    deleteProject,
     getProjectFormData,
 };

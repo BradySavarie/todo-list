@@ -44,7 +44,6 @@ Click Events:
 
     
     Okay! So now I need to:
-        - At this point i'll need to figure out project switching functionality to display only the active project with its contents. This way I can ensure tasks are appended to the correct project when created
         - Write function logic that responds to the submit buttons
         - Important place to start with logic could be just the create functions
         - Once items can be created I will focus on deleting them
@@ -54,13 +53,6 @@ Click Events:
         - Start with only the default load up, hide everything else
         - style the modals afterwards
         - now style the page when contents have been added in
-
-    Active Project Logic:
-        Goal: When a new project is created or an existing project is clicked on it is set to the active project and displayed
-
-    - an activeProject variable will contain a reference to a recently created or clicked on project. It will be used to identify which project to display and attach new tasks to. New tasks will be added by saying activeProject.tasks.push()
-    - setActiveProject will be triggered when createNewProject is invoked or an existing task is clicked on.
-    - When a project is created a card with the information will be displayed. Each project card will be given a data attribute that corresponds to the index of the projectsList array that its project object resides at. When a project is clicked the data attribute value gets plugged into the index number of the projectsList array and the resulting object is set as the activeProject variable. 
 
     
     

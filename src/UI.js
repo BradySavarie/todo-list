@@ -1,4 +1,4 @@
-import { projectsList, readProject } from './projects';
+import { readProject } from './projects';
 import { readTask } from './tasks';
 
 function openNewProjectModal() {
@@ -32,6 +32,20 @@ function renderNewProjectCard(projectsIndex) {
     projectsContainer.appendChild(newProjectCard);
 }
 
+function openNewTaskModal() {
+    const createNewTaskModal = document.getElementById('createNewTaskModal');
+    createNewTaskModal.classList.remove('hidden');
+}
+
+function openReadTaskModal() {
+    readTask();
+    console.log('Read Task Modal Opened');
+}
+
+function openDeleteTaskModal() {
+    console.log('Delete Task Modal Opened');
+}
+
 function renderNewTaskCard() {
     const tasksContainer = document.getElementById('tasksContainer');
     const newTaskCard = document.createElement('div');
@@ -45,20 +59,6 @@ function renderNewTaskCard() {
                             Delete Task
                         </button>`;
     tasksContainer.appendChild(newTaskCard);
-}
-
-function openNewTaskModal() {
-    const createNewTaskModal = document.getElementById('createNewTaskModal');
-    createNewTaskModal.classList.remove('hidden');
-}
-
-function openReadTaskModal() {
-    readTask();
-    console.log('Read Task Modal Opened');
-}
-
-function openDeleteTaskModal() {
-    console.log('Delete Task Modal Opened');
 }
 
 export {

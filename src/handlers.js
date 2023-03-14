@@ -11,7 +11,6 @@ import {
 import {
     projectsList,
     setActiveProject,
-    getActiveProject,
     getActiveProjectIndex,
     createProject,
     getProjectFormData,
@@ -68,11 +67,11 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
     createProject(title, description);
-    renderNewProjectCard(projectsList.length - 1);
     setActiveProject(
         projectsList[projectsList.length - 1],
         projectsList.length - 1
     );
+    renderNewProjectCard(projectsList.length - 1);
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
