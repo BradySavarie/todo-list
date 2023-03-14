@@ -10,12 +10,12 @@
     <body>
         <div id="content" class="w-screen h-screen font-Lato">
             <!-- Header -->
-            <div id="header" class="flex px-9 py-12 justify-start h-[20vh]">
-                <img src="./img/logo.svg" alt="logo" style="height: 2.125rem" />
+            <div id="header" class="flex px-9 py-12 justify-start h-[20%]">
+                <img src="./img/logo.svg" alt="logo" class="h-[2.125rem]" />
             </div>
 
-            <!-- Sidebar -->
-            <div id="sidebar">
+            <!-- Projects View -->
+            <div id="projectsView" class="flex flex-col h-[70%]">
                 <div class="flex items-center">
                     <div class="h-0.5 w-full bg-light-gray"></div>
                     <h1
@@ -26,9 +26,19 @@
                     </h1>
                     <div class="h-0.5 w-full bg-light-gray"></div>
                 </div>
-                <div id="projectsContainer">
-                    <button data-element="openNewProjectModalBtn">+</button>
-                    <div class="outline">
+                <div id="projectsContainer" class="flex flex-col h-full">
+                    <div
+                        class="flex flex-col items-center justify-center gap-4 h-[30%]"
+                    >
+                        <button
+                            data-element="openNewProjectModalBtn"
+                            class="w-12 aspect-square rounded-md border border-light-gray text-xl font-bold text-dark-gray"
+                        >
+                            +
+                        </button>
+                        <p class="text-light-gray">Add Project</p>
+                    </div>
+                    <div class="h-[70%]">
                         <button data-projectsIndex="0">Project Title</button>
                         <p>Project Description</p>
                         <button data-element="openReadProjectModalBtn">
@@ -41,8 +51,11 @@
                 </div>
             </div>
 
-            <!-- Main -->
-            <div id="main" class="outline">
+            <!-- Nav -->
+            <div class="h-[10%] outline"></div>
+
+            <!-- Tasks View -->
+            <div id="main" class="outline hidden">
                 <h1>Selected Project</h1>
                 <h2>Tasks</h2>
                 <div id="tasksContainer">
