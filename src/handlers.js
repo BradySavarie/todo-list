@@ -17,12 +17,12 @@ import {
 } from './projects';
 import { createTask, getTaskFormData } from './tasks';
 
-const sidebar = document.getElementById('sidebar');
+const projectsView = document.getElementById('projectsView');
 const main = document.getElementById('main');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
 
-sidebar.addEventListener('click', (e) => {
+projectsView.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
     const projectsIndex = e.target.getAttribute('data-projectsIndex');
 
