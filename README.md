@@ -1,5 +1,5 @@
 <h1>✏️ Todo List</h1>
 
-<h2>A Task Manager Application<h2>
+<h2>A Mobile-First Task Manager Application<h2>
 
 
