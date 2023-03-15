@@ -21,14 +21,22 @@ function renderNewProjectCard(projectsIndex) {
     const projectsContainer = document.getElementById('projectsContainer');
     const newProjectCard = document.createElement('div');
 
-    newProjectCard.innerHTML = `<button data-projectsIndex="${projectsIndex}">Project Title</button>
-                        <p>Project Description</p>
-                        <button data-element="openReadProjectModalBtn">
-                            View Project
-                        </button>
-                        <button data-element="openDeleteProjectModalBtn">
-                            Delete Project
-                        </button>`;
+    newProjectCard.innerHTML = `<div
+                        class="h-full flex justify-center grow-0 shrink-0 basis-auto"
+                    >
+                        <div class="outline">
+                            <button data-projectsIndex=${projectsIndex}>
+                                Default Project
+                            </button>
+                            <p>Features to try out</p>
+                            <button data-element="openReadProjectModalBtn">
+                                View Project
+                            </button>
+                            <button data-element="openDeleteProjectModalBtn">
+                                Delete Project
+                            </button>
+                        </div>
+                    </div>`;
     projectsContainer.appendChild(newProjectCard);
 }
 
