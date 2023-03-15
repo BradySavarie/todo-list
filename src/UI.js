@@ -21,23 +21,36 @@ function renderNewProjectCard(projectsIndex) {
     const projectsContainer = document.getElementById('projectsContainer');
     const newProjectCard = document.createElement('div');
 
-    newProjectCard.innerHTML = `<div
-                        class="h-full flex justify-center grow-0 shrink-0 basis-auto"
-                    >
-                        <div class="outline">
-                            <button data-projectsIndex=${projectsIndex}>
-                                Default Project
+    /* newProjectCard.innerHTML = `<div
+                            data-element="openReadProjectModalBtn"
+                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-[65%] py-12 font-Lato font-bold"
+                        >
+                            <button data-projectsIndex=${projectsIndex} class="text-2xl">
+                                My Tasks
                             </button>
-                            <p>Features to try out</p>
-                            <button data-element="openReadProjectModalBtn">
-                                View Project
-                            </button>
-                            <button data-element="openDeleteProjectModalBtn">
+                            <!-- <button data-element="openDeleteProjectModalBtn">
                                 Delete Project
+                            </button> -->
+                        </div>`;
+    projectsContainer.appendChild(newProjectCard); */
+    projectsContainer.insertAdjacentHTML(
+        'beforeend',
+        `<div
+                        class="h-[90%] w-[65%] flex grow-0 shrink-0 basis-auto"
+                    >
+                        <div
+                            data-element="openReadProjectModalBtn"
+                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-full py-12 font-Lato font-bold mr-5"
+                        >
+                            <button data-projectsIndex=${projectsIndex} class="text-2xl">
+                                My Tasks
                             </button>
+                            <!-- <button data-element="openDeleteProjectModalBtn">
+                                Delete Project
+                            </button> -->
                         </div>
-                    </div>`;
-    projectsContainer.appendChild(newProjectCard);
+                    </div>`
+    );
 }
 
 function openNewTaskModal() {

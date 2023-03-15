@@ -39,20 +39,21 @@
                 </div>
                 <div
                     id="projectsContainer"
-                    class="flex gap-5 h-full whitespace-nowrap overflow-x-scroll"
+                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll"
                 >
-                    <div class="h-full flex grow-0 shrink-0 basis-auto">
-                        <div class="outline">
-                            <button data-projectsIndex="0">
-                                Default Project
+                    <div
+                        class="h-[90%] w-[65%] flex grow-0 shrink-0 basis-auto"
+                    >
+                        <div
+                            data-element="openReadProjectModalBtn"
+                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-full py-12 font-Lato font-bold mr-5"
+                        >
+                            <button data-projectsIndex="0" class="text-2xl">
+                                My Tasks
                             </button>
-                            <p>Features to try out</p>
-                            <button data-element="openReadProjectModalBtn">
-                                View Project
-                            </button>
-                            <button data-element="openDeleteProjectModalBtn">
+                            <!-- <button data-element="openDeleteProjectModalBtn">
                                 Delete Project
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
