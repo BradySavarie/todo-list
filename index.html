@@ -16,6 +16,7 @@
 
             <!-- Home Page -->
             <div id="homePage" class="flex flex-col h-[70%]">
+                <!-- Projects Header -->
                 <div class="flex items-center">
                     <div class="h-0.5 w-full bg-light-gray"></div>
                     <h1
@@ -26,8 +27,9 @@
                     </h1>
                     <div class="h-0.5 w-full bg-light-gray"></div>
                 </div>
+                <!-- Add List Container -->
                 <div
-                    class="flex flex-col items-center justify-center gap-4 h-[50%]"
+                    class="flex flex-col items-center justify-center gap-4 min-h-[200px] h-[50%]"
                 >
                     <button
                         data-element="openNewProjectModalBtn"
@@ -37,20 +39,23 @@
                     </button>
                     <p class="text-light-gray">Add Project</p>
                 </div>
+                <!-- Project Container -->
                 <div
                     id="projectsContainer"
-                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll"
+                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9"
                 >
+                    <!-- Task Item -->
                     <div
-                        class="h-[90%] w-[65%] flex grow-0 shrink-0 basis-auto"
+                        class="h-full w-[55%] mr-5 flex grow-0 shrink-0 basis-auto"
                     >
                         <div
                             data-element="openReadProjectModalBtn"
-                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-full py-12 font-Lato font-bold mr-5"
+                            class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14"
                         >
-                            <button data-projectsIndex="0" class="text-2xl">
+                            <button data-projectsIndex="0" class="text-xl mb-5">
                                 My Tasks
                             </button>
+                            <div class="h-[1.25px] w-full bg-white"></div>
                             <!-- <button data-element="openDeleteProjectModalBtn">
                                 Delete Project
                             </button> -->
