@@ -23,7 +23,7 @@ function renderNewProjectCard(projectsIndex) {
 
     /* newProjectCard.innerHTML = `<div
                             data-element="openReadProjectModalBtn"
-                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-[65%] py-12 font-Lato font-bold"
+                            class="flex flex-col cursor-pointer rounded-lg bg-red-600 text-white w-[65%] py-12 font-Lato font-bold shadow-md"
                         >
                             <button data-projectsIndex=${projectsIndex} class="text-2xl">
                                 My Tasks
@@ -36,7 +36,7 @@ function renderNewProjectCard(projectsIndex) {
     projectsContainer.insertAdjacentHTML(
         'beforeend',
         `<div
-                        class="h-full w-[55%] mr-5 flex grow-0 shrink-0 basis-auto"
+                        class="h-full min-w-[60%] flex grow-0 shrink-0 basis-auto snap-center"
                     >
                         <div
                             data-element="openReadProjectModalBtn"
@@ -45,7 +45,7 @@ function renderNewProjectCard(projectsIndex) {
                             <button data-projectsIndex="0" class="text-xl mb-5">
                                 My Tasks
                             </button>
-                            <div class="h-[1.5px] w-full bg-white"></div>
+                            <div class="h-[1.25px] w-full bg-white"></div>
                             <!-- <button data-element="openDeleteProjectModalBtn">
                                 Delete Project
                             </button> -->
