@@ -5,6 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo List</title>
+        <link
+            rel="shortcut icon"
+            href="./img/favicon.svg"
+            type="image/x-icon"
+        />
+        <script
+            src="https://kit.fontawesome.com/3e2ede873d.js"
+            crossorigin="anonymous"
+        ></script>
         <script src="./main.js" defer></script>
     </head>
     <body>
@@ -42,17 +51,20 @@
                 <!-- Project Container -->
                 <div
                     id="projectsContainer"
-                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9"
+                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9 snap-x gap-5"
                 >
                     <!-- Task Item -->
                     <div
-                        class="h-full w-[55%] mr-5 flex grow-0 shrink-0 basis-auto"
+                        class="h-full min-w-[60%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
                         <div
                             data-element="openReadProjectModalBtn"
-                            class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14"
+                            class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
                         >
-                            <button data-projectsIndex="0" class="text-xl mb-5">
+                            <button
+                                data-projectsIndex="0"
+                                class="text-2xl mb-5"
+                            >
                                 My Tasks
                             </button>
                             <div class="h-[1.25px] w-full bg-white"></div>
@@ -65,7 +77,18 @@
             </div>
 
             <!-- Nav -->
-            <div class="h-[10%] outline"></div>
+            <div class="h-[10%] w-full flex">
+                <div
+                    class="w-[50%] flex py-4 justify-center shadow-md rotate-180"
+                >
+                    <i class="fa-solid fa-list text-2xl rotate-180"></i>
+                </div>
+                <div
+                    class="w-[50%] flex py-4 justify-center shadow-md rotate-180"
+                >
+                    <i class="fa-solid fa-pencil text-2xl rotate-180"></i>
+                </div>
+            </div>
 
             <!-- Tasks View -->
             <div id="main" class="outline hidden">
