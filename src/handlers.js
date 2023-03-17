@@ -1,5 +1,6 @@
 import {
     openNewProjectModal,
+    closeNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
     openNewTaskModal,
@@ -19,6 +20,7 @@ import { createTask, getTaskFormData } from './tasks';
 
 const homePage = document.getElementById('homePage');
 const main = document.getElementById('main');
+const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
 
@@ -71,7 +73,8 @@ createNewProjectForm.addEventListener('submit', (e) => {
         projectsList[projectsList.length - 1],
         projectsList.length - 1
     );
-    renderNewProjectCard(projectsList.length - 1);
+    closeNewProjectModal();
+    renderNewProjectCard(title, projectsList.length - 1);
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
@@ -80,4 +83,8 @@ createNewTaskForm.addEventListener('submit', (e) => {
     const index = getActiveProjectIndex();
     createTask(title, description, dueDate, priority, index);
     renderNewTaskCard();
+});
+
+overlay.addEventListener('click', (e) => {
+    closeNewProjectModal();
 });

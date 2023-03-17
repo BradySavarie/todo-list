@@ -43,16 +43,15 @@ Click Events:
             - new task is displayed in main container
 
     
-    Okay! So now I need to:
-        - Write function logic that responds to the submit buttons
-        - Important place to start with logic could be just the create functions
-        - Once items can be created I will focus on deleting them
-        - Once that is done I can add the update function in
-        - I can then include "mark as complete" functionality to the tasks
-        - All the main logic should be ready by this point to start thinking about styling
-        - Start with only the default load up, hide everything else
-        - style the modals afterwards
-        - now style the page when contents have been added in
+    Okay! Main things that I need to do:
+        - Style add project modal
+        - Make project card content dynamically generated from project object
+        - Make a project view that displays all project information when a card is clicked
+        - A project can be deleted or updated via the project view
+        - Should be able to add a task to the active project in task view
+        - Each task can be marked as completed and be deleted
+        - Make the footer icons switchable between the home page that lists all projects and the tasks page that lists all tasks
+        - make the app responsive
 
     
     
