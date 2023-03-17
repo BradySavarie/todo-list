@@ -17,7 +17,7 @@
         <script src="./main.js" defer></script>
     </head>
     <body>
-        <div id="content" class="w-screen h-screen font-Lato">
+        <div id="content" class="w-screen h-screen font-Lato relative">
             <!-- Header -->
             <div id="header" class="flex px-9 py-12 justify-start h-[20%]">
                 <img src="./img/logo.svg" alt="logo" class="h-[2.125rem]" />
@@ -55,7 +55,7 @@
                 >
                     <!-- Task Item -->
                     <div
-                        class="h-full min-w-[60%] flex grow shrink-0 basis-auto snap-center shadow-md"
+                        class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
                         <div
                             data-element="openReadProjectModalBtn"
@@ -71,21 +71,19 @@
                             <div class="h-full flex flex-col mt-5 gap-3">
                                 <div class="flex items-center gap-4 text-xl">
                                     <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">
-                                        Download Application
-                                    </p>
+                                    <p class="font-normal">Buy Groceries</p>
                                 </div>
                                 <div class="flex items-center gap-4 text-xl">
                                     <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Download App</p>
+                                    <p class="font-normal">Pay Bills</p>
                                 </div>
                                 <div class="flex items-center gap-4 text-xl">
                                     <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Download App</p>
+                                    <p class="font-normal">Cook Dinner</p>
                                 </div>
                                 <div class="flex items-center gap-4 text-xl">
                                     <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Download App</p>
+                                    <p class="font-normal">Feed Cats</p>
                                 </div>
                             </div>
                             <!-- <button data-element="openDeleteProjectModalBtn">
@@ -130,16 +128,49 @@
             </div>
 
             <!-- Create New Project Modal -->
-            <div id="createNewProjectModal" class="outline hidden">
-                <form action="#" id="createNewProjectForm">
-                    <div>
-                        <input type="text" name="title" placeholder="title" />
-                        <input
-                            type="text"
-                            name="description"
-                            placeholder="description"
-                        />
-                        <button type="submit">Add</button>
+            <div
+                id="createNewProjectModal"
+                class="shadow-md rounded-xl hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-[80%] z-10 justify-center items-center"
+            >
+                <form
+                    action="#"
+                    id="createNewProjectForm"
+                    class="flex flex-col justify-center w-full"
+                >
+                    <div
+                        class="flex flex-col justify-center text-xl font-Lato text-center w-full"
+                    >
+                        <div
+                            class="bg-gradient-to-b from-orange-400 to-orange-500 rounded-t-xl p-4 flex justify-center items-center text-white w-full"
+                        >
+                            <h1 class="text-3xl font-bold">Add New Project</h1>
+                        </div>
+                        <div class="flex flex-col px-4 pt-4 gap-2 text-xl">
+                            <label for="title" class="self-start">Title:</label>
+                            <input
+                                type="text"
+                                name="title"
+                                minlength="2"
+                                class="rounded-md shadow-sm outline outline-light-gray"
+                            />
+                        </div>
+                        <div class="flex flex-col px-4 pt-4 pb-5 gap-2 text-xl">
+                            <label for="description" class="self-start"
+                                >Description</label
+                            >
+                            <input
+                                type="text"
+                                name="description"
+                                minlength="2"
+                                class="rounded-md shadow-sm outline outline-light-gray"
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-12 aspect-square rounded-md bg-orange-500 text-white text-xl font-bold self-center mb-5"
+                        >
+                            +
+                        </button>
                     </div>
                 </form>
             </div>
@@ -166,6 +197,12 @@
                     </div>
                 </form>
             </div>
+
+            <!-- Modal Overlay -->
+            <div
+                id="overlay"
+                class="hidden w-screen h-screen bg-black opacity-50 z-0 absolute top-0 left-0"
+            ></div>
         </div>
     </body>
 </html>
