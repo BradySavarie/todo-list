@@ -93,14 +93,14 @@ function toggleView(selection) {
     const tasksView = document.getElementById('tasksView');
 
     if (selection.dataset.view === 'projectsView') {
-        if (!projectsView.classList.contains('bg-gray-100')) {
-            projectsView.classList.add('bg-gray-100');
-            tasksView.classList.remove('bg-gray-100');
+        if (!projectsView.classList.contains('active')) {
+            projectsView.classList.add('bg-gray-100', 'active');
+            tasksView.classList.remove('bg-gray-100', 'active');
         }
     } else if (selection.dataset.view === 'tasksView') {
-        if (!tasksView.classList.contains('bg-gray-100')) {
-            tasksView.classList.add('bg-gray-100');
-            projectsView.classList.remove('bg-gray-100');
+        if (!tasksView.classList.contains('active')) {
+            tasksView.classList.add('bg-gray-100', 'active');
+            projectsView.classList.remove('bg-gray-100', 'active');
         }
     }
 }

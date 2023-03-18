@@ -41,10 +41,8 @@ Click Events:
         createNewTaskBtn
             - createTask is called with user info as input and the projectIndex set to the currently selected project
             - new task is displayed in main container
-
     
     Okay! Main things that I need to do:
-        - Style add project modal
         - Make project card content dynamically generated from project object
         - Make a project view that displays all project information when a card is clicked
         - A project can be deleted or updated via the project view
