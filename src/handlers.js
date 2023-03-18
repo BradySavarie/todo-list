@@ -3,12 +3,12 @@ import {
     closeNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
-    toggleView,
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
     renderNewProjectCard,
     renderNewTaskCard,
+    toggleView,
 } from './UI';
 import {
     projectsList,
@@ -68,7 +68,7 @@ main.addEventListener('click', (e) => {
 });
 
 nav.addEventListener('click', (e) => {
-    toggleView(e.target.id);
+    toggleView(e.target);
 });
 
 createNewProjectForm.addEventListener('submit', (e) => {

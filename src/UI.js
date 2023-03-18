@@ -32,7 +32,6 @@ function openDeleteProjectModal() {
 
 function renderNewProjectCard(title, projectsIndex) {
     const projectsContainer = document.getElementById('projectsContainer');
-    const newProjectCard = document.createElement('div');
 
     projectsContainer.insertAdjacentHTML(
         'beforeend',
@@ -58,25 +57,6 @@ function renderNewProjectCard(title, projectsIndex) {
                         </div>
                     </div>`
     );
-}
-
-function toggleView(selection) {
-    const projectsView = document.getElementById('projectsView');
-    const tasksView = document.getElementById('tasksView');
-
-    // Needs Work
-
-    if (selection === 'projectsView') {
-        if (!projectsView.classList.contains('bg-gray-100')) {
-            projectsView.classList.add('bg-gray-100');
-            tasksView.classList.remove('bg-gray-100');
-        }
-    } else if (selection === 'tasksView') {
-        if (!tasksView.classList.contains('bg-gray-100')) {
-            tasksView.classList.add('bg-gray-100');
-            projectsView.classList.remove('bg-gray-100');
-        }
-    }
 }
 
 function openNewTaskModal() {
@@ -108,15 +88,32 @@ function renderNewTaskCard() {
     tasksContainer.appendChild(newTaskCard);
 }
 
+function toggleView(selection) {
+    const projectsView = document.getElementById('projectsView');
+    const tasksView = document.getElementById('tasksView');
+
+    if (selection.dataset.view === 'projectsView') {
+        if (!projectsView.classList.contains('bg-gray-100')) {
+            projectsView.classList.add('bg-gray-100');
+            tasksView.classList.remove('bg-gray-100');
+        }
+    } else if (selection.dataset.view === 'tasksView') {
+        if (!tasksView.classList.contains('bg-gray-100')) {
+            tasksView.classList.add('bg-gray-100');
+            projectsView.classList.remove('bg-gray-100');
+        }
+    }
+}
+
 export {
     openNewProjectModal,
     closeNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
     renderNewProjectCard,
-    toggleView,
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
     renderNewTaskCard,
+    toggleView,
 };
