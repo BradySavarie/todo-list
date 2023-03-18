@@ -3,6 +3,7 @@ import {
     closeNewProjectModal,
     openReadProjectModal,
     openDeleteProjectModal,
+    toggleView,
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
@@ -20,6 +21,7 @@ import { createTask, getTaskFormData } from './tasks';
 
 const homePage = document.getElementById('homePage');
 const main = document.getElementById('main');
+const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
@@ -63,6 +65,10 @@ main.addEventListener('click', (e) => {
         default:
             console.log('default task message');
     }
+});
+
+nav.addEventListener('click', (e) => {
+    toggleView(e.target.id);
 });
 
 createNewProjectForm.addEventListener('submit', (e) => {

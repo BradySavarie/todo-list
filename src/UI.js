@@ -60,6 +60,25 @@ function renderNewProjectCard(title, projectsIndex) {
     );
 }
 
+function toggleView(selection) {
+    const projectsView = document.getElementById('projectsView');
+    const tasksView = document.getElementById('tasksView');
+
+    // Needs Work
+
+    if (selection === 'projectsView') {
+        if (!projectsView.classList.contains('bg-gray-100')) {
+            projectsView.classList.add('bg-gray-100');
+            tasksView.classList.remove('bg-gray-100');
+        }
+    } else if (selection === 'tasksView') {
+        if (!tasksView.classList.contains('bg-gray-100')) {
+            tasksView.classList.add('bg-gray-100');
+            projectsView.classList.remove('bg-gray-100');
+        }
+    }
+}
+
 function openNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     createNewTaskModal.classList.remove('hidden');
@@ -95,6 +114,7 @@ export {
     openReadProjectModal,
     openDeleteProjectModal,
     renderNewProjectCard,
+    toggleView,
     openNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
