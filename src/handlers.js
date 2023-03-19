@@ -1,7 +1,7 @@
 import {
     openNewProjectModal,
     closeNewProjectModal,
-    openReadProjectModal,
+    openProjectView,
     openDeleteProjectModal,
     openNewTaskModal,
     openReadTaskModal,
@@ -19,36 +19,29 @@ import {
 } from './projects';
 import { createTask, getTaskFormData } from './tasks';
 
-const homePage = document.getElementById('homePage');
+const projectsPage = document.getElementById('projectsPage');
+const openNewProjectModalBtn = document.getElementById(
+    'openNewProjectModalBtn'
+);
+const closeNewProjectModalBtn = document.getElementById(
+    'closeNewProjectModalBtn'
+);
+const openProjectViewBtn = document.getElementById('openProjectViewBtn');
 const main = document.getElementById('main');
 const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
 
-homePage.addEventListener('click', (e) => {
-    const element = e.target.getAttribute('data-element');
+projectsPage.addEventListener('click', (e) => {
     const projectsIndex = e.target.getAttribute('data-projectsIndex');
 
-    if (element) {
-        switch (element) {
-            case 'openNewProjectModalBtn':
-                openNewProjectModal();
-                break;
-            case 'openReadProjectModalBtn':
-                openReadProjectModal();
-                break;
-            case 'openDeleteProjectModalBtn':
-                openDeleteProjectModal();
-                break;
-            default:
-                console.log('default project message');
-        }
-    } else if (projectsIndex) {
+    if (projectsIndex) {
         setActiveProject(projectsList[projectsIndex], projectsIndex);
     }
 });
 
+/* 
 main.addEventListener('click', (e) => {
     const element = e.target.getAttribute('data-element');
 
@@ -65,7 +58,7 @@ main.addEventListener('click', (e) => {
         default:
             console.log('default task message');
     }
-});
+}); */
 
 nav.addEventListener('click', (e) => {
     toggleView(e.target);
@@ -91,6 +84,18 @@ createNewTaskForm.addEventListener('submit', (e) => {
     renderNewTaskCard();
 });
 
-overlay.addEventListener('click', (e) => {
+overlay.addEventListener('click', () => {
     closeNewProjectModal();
+});
+
+openNewProjectModalBtn.addEventListener('click', () => {
+    openNewProjectModal();
+});
+
+closeNewProjectModalBtn.addEventListener('click', () => {
+    closeNewProjectModal();
+});
+
+openProjectViewBtn.addEventListener('click', () => {
+    openProjectView();
 });

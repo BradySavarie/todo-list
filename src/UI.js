@@ -6,9 +6,9 @@ function openNewProjectModal() {
         'createNewProjectModal'
     );
     const overlay = document.getElementById('overlay');
+    overlay.classList.remove('hidden');
     createNewProjectModal.classList.remove('hidden');
     createNewProjectModal.classList.add('flex');
-    overlay.classList.remove('hidden');
 }
 
 function closeNewProjectModal() {
@@ -16,12 +16,12 @@ function closeNewProjectModal() {
         'createNewProjectModal'
     );
     const overlay = document.getElementById('overlay');
+    overlay.classList.add('hidden');
     createNewProjectModal.classList.add('hidden');
     createNewProjectModal.classList.remove('flex');
-    overlay.classList.add('hidden');
 }
 
-function openReadProjectModal() {
+function openProjectView() {
     readProject();
     console.log('Read Project Modal Opened');
 }
@@ -31,9 +31,9 @@ function openDeleteProjectModal() {
 }
 
 function renderNewProjectCard(title, projectsIndex) {
-    const projectsContainer = document.getElementById('projectsContainer');
+    const projectsScroller = document.getElementById('projectsScroller');
 
-    projectsContainer.insertAdjacentHTML(
+    projectsScroller.insertAdjacentHTML(
         'beforeend',
         `<div
                         class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
@@ -89,18 +89,28 @@ function renderNewTaskCard() {
 }
 
 function toggleView(selection) {
-    const projectsView = document.getElementById('projectsView');
-    const tasksView = document.getElementById('tasksView');
+    const projectsPage = document.getElementById('projectsPage');
+    const projectsPageBtn = document.getElementById('projectsPageBtn');
+    const tasksPage = document.getElementById('tasksPage');
+    const tasksPageBtn = document.getElementById('tasksPageBtn');
 
-    if (selection.dataset.view === 'projectsView') {
-        if (!projectsView.classList.contains('active')) {
-            projectsView.classList.add('bg-gray-100', 'active');
-            tasksView.classList.remove('bg-gray-100', 'active');
+    if (selection.dataset.view === 'projectsPageBtn') {
+        if (!projectsPageBtn.classList.contains('active')) {
+            projectsPage.classList.add('flex');
+            projectsPage.classList.remove('hidden');
+            tasksPage.classList.add('hidden');
+            tasksPage.classList.remove('flex');
+            projectsPageBtn.classList.add('bg-gray-100', 'active');
+            tasksPageBtn.classList.remove('bg-gray-100', 'active');
         }
-    } else if (selection.dataset.view === 'tasksView') {
-        if (!tasksView.classList.contains('active')) {
-            tasksView.classList.add('bg-gray-100', 'active');
-            projectsView.classList.remove('bg-gray-100', 'active');
+    } else if (selection.dataset.view === 'tasksPageBtn') {
+        if (!tasksPageBtn.classList.contains('active')) {
+            tasksPage.classList.add('flex');
+            tasksPage.classList.remove('hidden');
+            projectsPage.classList.add('hidden');
+            projectsPage.classList.remove('flex');
+            tasksPageBtn.classList.add('bg-gray-100', 'active');
+            projectsPageBtn.classList.remove('bg-gray-100', 'active');
         }
     }
 }
@@ -108,7 +118,7 @@ function toggleView(selection) {
 export {
     openNewProjectModal,
     closeNewProjectModal,
-    openReadProjectModal,
+    openProjectView,
     openDeleteProjectModal,
     renderNewProjectCard,
     openNewTaskModal,

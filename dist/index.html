@@ -18,13 +18,13 @@
     </head>
     <body>
         <div id="content" class="w-screen h-screen font-Lato relative">
-            <!-- Header -->
+            <!-- Main Header -->
             <div id="header" class="flex px-9 py-12 justify-start h-[20%]">
                 <img src="./img/logo.svg" alt="logo" class="h-[2.125rem]" />
             </div>
 
-            <!-- Home Page -->
-            <div id="homePage" class="flex flex-col h-[70%]">
+            <!-- Projects Page -->
+            <div id="projectsPage" class="flex flex-col h-[70%]">
                 <!-- Projects Header -->
                 <div class="flex items-center">
                     <div class="h-0.5 w-full bg-light-gray"></div>
@@ -36,29 +36,30 @@
                     </h1>
                     <div class="h-0.5 w-full bg-light-gray"></div>
                 </div>
-                <!-- Add List Container -->
+                <!-- Add New Project -->
                 <div
                     class="flex flex-col items-center justify-center gap-4 min-h-[200px] h-[50%]"
                 >
                     <button
-                        data-element="openNewProjectModalBtn"
-                        class="w-12 aspect-square rounded-md border border-light-gray text-xl font-bold text-dark-gray"
+                        id="openNewProjectModalBtn"
+                        class="w-12 aspect-square rounded-md border border-light-gray text-xl font-bold text-dark-gray hover:bg-gray-200 hover:cursor-pointer"
                     >
                         +
                     </button>
                     <p class="text-light-gray">Add Project</p>
                 </div>
-                <!-- Project Container -->
+                <!-- Projects Scroller -->
                 <div
-                    id="projectsContainer"
+                    id="projectsScroller"
                     class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9 snap-x gap-5"
                 >
-                    <!-- Task Item -->
+                    <!-- Project Cards -->
                     <div
                         class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
+                        <!-- Default Project -->
                         <div
-                            data-element="openReadProjectModalBtn"
+                            id="openProjectViewBtn"
                             class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
                         >
                             <button
@@ -86,33 +87,65 @@
                                     <p class="font-normal">Feed Cats</p>
                                 </div>
                             </div>
-                            <!-- <button data-element="openDeleteProjectModalBtn">
-                                Delete Project
-                            </button> -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Nav -->
-            <div id="nav" class="h-[10%] w-full flex bg-white">
+            <!-- Tasks Page -->
+            <div id="tasksPage" class="hidden flex-col h-[70%]">
+                <!-- Tasks Header -->
+                <div class="flex items-center">
+                    <div class="h-0.5 w-full bg-light-gray"></div>
+                    <h1
+                        class="mx-10 text-4xl whitespace-nowrap font-light text-light-gray"
+                    >
+                        My
+                        <span class="font-bold text-dark-gray">Tasks</span>
+                    </h1>
+                    <div class="h-0.5 w-full bg-light-gray"></div>
+                </div>
+                <!-- Add New Task -->
                 <div
-                    data-view="projectsView"
-                    id="projectsView"
-                    class="active w-[50%] flex py-4 justify-center shadow-md rotate-180 bg-gray-100"
+                    class="flex flex-col items-center justify-center gap-4 min-h-[200px] h-[50%]"
+                >
+                    <button
+                        id="openNewProjectModalBtn"
+                        class="w-12 aspect-square rounded-md border border-light-gray text-xl font-bold text-dark-gray hover:bg-gray-200 hover:cursor-pointer"
+                    >
+                        +
+                    </button>
+                    <p class="text-light-gray">Add Task</p>
+                </div>
+                <!-- Projects Scroller -->
+                <div
+                    id="projectsScroller"
+                    class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9 snap-x gap-5"
+                ></div>
+            </div>
+
+            <!-- Nav -->
+            <div
+                id="nav"
+                class="h-[10%] w-full flex bg-white hover:cursor-pointer"
+            >
+                <div
+                    data-view="projectsPageBtn"
+                    id="projectsPageBtn"
+                    class="active w-[50%] flex py-4 justify-center shadow-md rotate-180 bg-gray-100 hover:bg-gray-200"
                 >
                     <i
-                        data-view="projectsView"
+                        data-view="projectsPageBtn"
                         class="fa-solid fa-list text-2xl rotate-180"
                     ></i>
                 </div>
                 <div
-                    data-view="tasksView"
-                    id="tasksView"
-                    class="w-[50%] flex py-4 justify-center shadow-md rotate-180"
+                    data-view="tasksPageBtn"
+                    id="tasksPageBtn"
+                    class="w-[50%] flex py-4 justify-center shadow-md rotate-180 hover:bg-gray-200"
                 >
                     <i
-                        data-view="tasksView"
+                        data-view="tasksPageBtn"
                         class="fa-solid fa-pencil text-2xl rotate-180"
                     ></i>
                 </div>
@@ -151,9 +184,16 @@
                         class="flex flex-col justify-center text-xl font-Lato text-center w-full"
                     >
                         <div
-                            class="bg-gradient-to-b from-orange-400 to-orange-500 rounded-t-xl p-4 flex justify-center items-center text-white w-full"
+                            class="bg-gradient-to-b from-orange-400 to-orange-500 rounded-t-xl p-4 flex justify-center items-center text-white w-full relative"
                         >
                             <h1 class="text-3xl font-bold">Add New Project</h1>
+                            <button
+                                id="closeNewProjectModalBtn"
+                                class="absolute right-4 top-2 text-sm"
+                                type="button"
+                            >
+                                X
+                            </button>
                         </div>
                         <div class="flex flex-col px-4 pt-4 gap-2 text-xl">
                             <label for="title" class="self-start">Title:</label>
