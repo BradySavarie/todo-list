@@ -1,16 +1,4 @@
-    Projects Page (set to default) lists all projects
-    Tasks Page lists all tasks
-    Project View lists all contents of the selected project
-        - Projects can be updated and deleted here
-    Task View lists all contents of the selected task
-        - Tasks can be updated and deleted here
-      
-    
     Things to do:
-
-    General:
-
-        - Make nav bar switch between projects page and tasks page
 
     Projects Page
 
@@ -18,20 +6,25 @@
             - Card defaults to rendering an "empty" message with project title, and then replaces content with tasks once they are added to project.
         - Make each project card not expand in width as their text content increases. Title should wrap and task info should not wrap and be hidden on overflow, with a vertical scroll when extra space is needed.
         - When tasks are added to project card, ensure they are styled with a strikethrough when marked as complete
+        - If default task is deleted, show empty message on projects page
+
+    Project View
+
+     - List all information and tasks associated with selected project
+     - Make each field editable and add an update button
+     - Create a delete button that deletes the project and its contents (no confirmation modal necessary)
     
-    Tasks Page:
+    Tasks Page
 
-
-
-
+        - When new tasks are created, append them to a selected project
+        - Create and style the section that holds each task
     
-        - Make a project view that displays all project information when a card is clicked
-        - A project can be deleted or updated via the project view
-        - Should be able to add a task to the active project in task view
-        - Each task can be marked as completed and be deleted
-        - Make the footer icons switchable between the home page that lists all projects and the tasks page that lists all tasks
-        - make the app responsive
-    
+    Task View
+
+    - List all information associated with selected task
+    - Make each field editable and add an update button
+    - Create a delete task button
+
 
     
 
