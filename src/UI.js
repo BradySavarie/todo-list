@@ -21,15 +21,6 @@ function closeNewProjectModal() {
     createNewProjectModal.classList.remove('flex');
 }
 
-function openProjectView() {
-    readProject();
-    console.log('Read Project Modal Opened');
-}
-
-function openDeleteProjectModal() {
-    console.log('Delete Project Modal Opened');
-}
-
 function renderNewProjectCard(title, projectsIndex) {
     const projectsScroller = document.getElementById('projectsScroller');
 
@@ -57,6 +48,11 @@ function renderNewProjectCard(title, projectsIndex) {
                         </div>
                     </div>`
     );
+}
+
+function openProjectView() {
+    readProject();
+    console.log('Read Project Modal Opened');
 }
 
 function openNewTaskModal() {
@@ -130,7 +126,6 @@ export {
     openNewProjectModal,
     closeNewProjectModal,
     openProjectView,
-    openDeleteProjectModal,
     renderNewProjectCard,
     openNewTaskModal,
     closeNewTaskModal,

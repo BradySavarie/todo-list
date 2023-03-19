@@ -7,12 +7,14 @@ class Project {
         this.title = title;
         this.description = description;
         this.tasks = [];
+        this.index = 0;
     }
 }
 
 function createProject(title, description) {
     const newProject = new Project(title, description);
     projectsList.push(newProject);
+    newProject.index = projectsList.length - 1;
 }
 
 function readProject() {

@@ -24,7 +24,3 @@
     - List all information associated with selected task
     - Make each field editable and add an update button
     - Create a delete task button
-
-
-    
-

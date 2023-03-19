@@ -2,7 +2,6 @@ import {
     openNewProjectModal,
     closeNewProjectModal,
     openProjectView,
-    openDeleteProjectModal,
     openNewTaskModal,
     closeNewTaskModal,
     openReadTaskModal,
@@ -14,13 +13,13 @@ import {
 import {
     projectsList,
     setActiveProject,
+    getActiveProject,
     getActiveProjectIndex,
     createProject,
     getProjectFormData,
 } from './projects';
 import { createTask, getTaskFormData } from './tasks';
 
-const projectsPage = document.getElementById('projectsPage');
 const openNewProjectModalBtn = document.getElementById(
     'openNewProjectModalBtn'
 );
@@ -30,38 +29,10 @@ const closeNewProjectModalBtn = document.getElementById(
 const openNewTaskModalBtn = document.getElementById('openNewTaskModalBtn');
 const closeNewTaskModalBtn = document.getElementById('closeNewTaskModalBtn');
 const openProjectViewBtn = document.getElementById('openProjectViewBtn');
-const main = document.getElementById('main');
 const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
-
-projectsPage.addEventListener('click', (e) => {
-    const projectsIndex = e.target.getAttribute('data-projectsIndex');
-
-    if (projectsIndex) {
-        setActiveProject(projectsList[projectsIndex], projectsIndex);
-    }
-});
-
-/* 
-main.addEventListener('click', (e) => {
-    const element = e.target.getAttribute('data-element');
-
-    switch (element) {
-        case 'openNewTaskModalBtn':
-            openNewTaskModal();
-            break;
-        case 'openReadTaskModalBtn':
-            openReadTaskModal();
-            break;
-        case 'openDeleteTaskModalBtn':
-            openDeleteTaskModal();
-            break;
-        default:
-            console.log('default task message');
-    }
-}); */
 
 nav.addEventListener('click', (e) => {
     toggleView(e.target);
@@ -71,12 +42,10 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
     createProject(title, description);
-    setActiveProject(
-        projectsList[projectsList.length - 1],
-        projectsList.length - 1
-    );
+    const index = projectsList.length - 1;
+    setActiveProject(projectsList[index], index);
     closeNewProjectModal();
-    renderNewProjectCard(title, projectsList.length - 1);
+    renderNewProjectCard(title, index);
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
