@@ -60,14 +60,10 @@
                         <!-- Default Project -->
                         <div
                             id="openProjectViewBtn"
+                            data-projectsIndex="0"
                             class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
                         >
-                            <button
-                                data-projectsIndex="0"
-                                class="text-2xl mb-5"
-                            >
-                                My Tasks
-                            </button>
+                            <p class="text-2xl mb-5">Default Project</p>
                             <div class="h-[1.25px] w-full bg-white"></div>
                             <div class="h-full flex flex-col mt-5 gap-3">
                                 <div class="flex items-center gap-4 text-xl">
@@ -117,11 +113,29 @@
                     </button>
                     <p class="text-light-gray">Add Task</p>
                 </div>
-                <!-- Projects Scroller -->
+                <!-- Tasks Container -->
                 <div
-                    id="projectsScroller"
                     class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9 snap-x gap-5"
-                ></div>
+                >
+                    <!-- Default Task -->
+                    <div class="outline flex h-[25%]">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-regular fa-square"></i>
+                            <div class="flex flex-col">
+                                <p class="text-xl">Buy Groceries</p>
+                                <p class="text-md">Task Description</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button data-element="openReadTaskModalBtn">
+                                View Task
+                            </button>
+                            <button data-element="openDeleteTaskModalBtn">
+                                Delete Task
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Nav -->
@@ -149,25 +163,6 @@
                         class="fa-solid fa-pencil text-2xl rotate-180"
                     ></i>
                 </div>
-            </div>
-
-            <!-- Tasks View -->
-            <div id="main" class="outline hidden">
-                <h1>Selected Project</h1>
-                <h2>Tasks</h2>
-                <div id="tasksContainer">
-                    <div>
-                        <h1>Task Title</h1>
-                        <p>Task Description</p>
-                        <button data-element="openReadTaskModalBtn">
-                            View Task
-                        </button>
-                        <button data-element="openDeleteTaskModalBtn">
-                            Delete Task
-                        </button>
-                    </div>
-                </div>
-                <button data-element="openNewTaskModalBtn">+</button>
             </div>
 
             <!-- Create New Project Modal -->
@@ -272,30 +267,38 @@
                                 class="rounded-md shadow-sm outline outline-light-gray p-2"
                             />
                         </div>
-                        <div class="flex flex-col px-4 pb-5 gap-2 text-xl">
-                            <label for="dueDate" class="self-start"
-                                >Due Date:</label
+                        <div class="w-full flex">
+                            <div
+                                class="flex flex-col px-4 pb-5 gap-2 text-xl w-1/2"
                             >
-                            <input
-                                type="date"
-                                name="dueDate"
-                                id="dueDate"
-                                class="rounded-md shadow-sm outline outline-light-gray p-2"
-                            />
-                        </div>
-                        <div class="flex flex-col px-4 pb-5 gap-2 text-xl">
-                            <label for="priority" class="self-start"
-                                >Priority:</label
+                                <label for="dueDate" class="self-start"
+                                    >Due Date:</label
+                                >
+                                <input
+                                    type="date"
+                                    name="dueDate"
+                                    id="dueDate"
+                                    class="rounded-md shadow-sm outline outline-light-gray p-2 h-full"
+                                />
+                            </div>
+                            <div
+                                class="flex flex-col px-4 pb-5 gap-2 text-xl w-1/2"
                             >
-                            <select
-                                name="priority"
-                                id="priority"
-                                class="rounded-md shadow-sm outline outline-light-gray p-2"
-                            >
-                                <option value="low">Low</option>
-                                <option value="medium" selected>Medium</option>
-                                <option value="high">High</option>
-                            </select>
+                                <label for="priority" class="self-start"
+                                    >Priority:</label
+                                >
+                                <select
+                                    name="priority"
+                                    id="priority"
+                                    class="rounded-md shadow-sm outline outline-light-gray p-2 h-full"
+                                >
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>
+                                        Medium
+                                    </option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
                         </div>
                         <button
                             type="submit"
