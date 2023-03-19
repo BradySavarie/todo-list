@@ -4,6 +4,7 @@ import {
     openProjectView,
     openDeleteProjectModal,
     openNewTaskModal,
+    closeNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
     renderNewProjectCard,
@@ -26,6 +27,8 @@ const openNewProjectModalBtn = document.getElementById(
 const closeNewProjectModalBtn = document.getElementById(
     'closeNewProjectModalBtn'
 );
+const openNewTaskModalBtn = document.getElementById('openNewTaskModalBtn');
+const closeNewTaskModalBtn = document.getElementById('closeNewTaskModalBtn');
 const openProjectViewBtn = document.getElementById('openProjectViewBtn');
 const main = document.getElementById('main');
 const nav = document.getElementById('nav');
@@ -86,6 +89,7 @@ createNewTaskForm.addEventListener('submit', (e) => {
 
 overlay.addEventListener('click', () => {
     closeNewProjectModal();
+    closeNewTaskModal();
 });
 
 openNewProjectModalBtn.addEventListener('click', () => {
@@ -98,4 +102,12 @@ closeNewProjectModalBtn.addEventListener('click', () => {
 
 openProjectViewBtn.addEventListener('click', () => {
     openProjectView();
+});
+
+openNewTaskModalBtn.addEventListener('click', () => {
+    openNewTaskModal();
+});
+
+closeNewTaskModalBtn.addEventListener('click', () => {
+    closeNewTaskModal();
 });

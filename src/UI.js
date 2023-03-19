@@ -61,7 +61,18 @@ function renderNewProjectCard(title, projectsIndex) {
 
 function openNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
+    const overlay = document.getElementById('overlay');
+    overlay.classList.remove('hidden');
     createNewTaskModal.classList.remove('hidden');
+    createNewTaskModal.classList.add('flex');
+}
+
+function closeNewTaskModal() {
+    const createNewTaskModal = document.getElementById('createNewTaskModal');
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add('hidden');
+    createNewTaskModal.classList.add('hidden');
+    createNewTaskModal.classList.remove('flex');
 }
 
 function openReadTaskModal() {
@@ -122,6 +133,7 @@ export {
     openDeleteProjectModal,
     renderNewProjectCard,
     openNewTaskModal,
+    closeNewTaskModal,
     openReadTaskModal,
     openDeleteTaskModal,
     renderNewTaskCard,

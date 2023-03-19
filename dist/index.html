@@ -110,7 +110,7 @@
                     class="flex flex-col items-center justify-center gap-4 min-h-[200px] h-[50%]"
                 >
                     <button
-                        id="openNewProjectModalBtn"
+                        id="openNewTaskModalBtn"
                         class="w-12 aspect-square rounded-md border border-light-gray text-xl font-bold text-dark-gray hover:bg-gray-200 hover:cursor-pointer"
                     >
                         +
@@ -226,24 +226,83 @@
             </div>
 
             <!-- Create New Task Modal -->
-            <div id="createNewTaskModal" class="outline hidden">
-                <form action="#" id="createNewTaskForm">
-                    <div>
-                        <input type="text" name="title" placeholder="title" />
-                        <input
-                            type="text"
-                            name="description"
-                            placeholder="description"
-                        />
-                        <label for="dueDate">Due Date:</label>
-                        <input type="date" name="dueDate" id="dueDate" />
-                        <label for="priority">Priority:</label>
-                        <select name="priority" id="priority">
-                            <option value="low">Low</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                        <button type="submit">Add</button>
+            <div
+                id="createNewTaskModal"
+                class="hidden shadow-md rounded-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-[80%] z-10 justify-center items-center"
+            >
+                <form
+                    action="#"
+                    id="createNewTaskForm"
+                    class="flex flex-col justify-center w-full"
+                >
+                    <div
+                        class="flex flex-col justify-center text-xl font-Lato text-center w-full"
+                    >
+                        <div
+                            class="bg-gradient-to-b from-orange-400 to-orange-500 rounded-t-xl p-4 flex justify-center items-center text-white w-full relative"
+                        >
+                            <h1 class="text-3xl font-bold">Add New Task</h1>
+                            <button
+                                id="closeNewTaskModalBtn"
+                                class="absolute right-4 top-2 text-sm"
+                                type="button"
+                            >
+                                X
+                            </button>
+                        </div>
+                        <div class="flex flex-col px-4 pt-4 gap-2 text-xl">
+                            <label for="title" class="self-start">Title:</label>
+                            <input
+                                type="text"
+                                name="title"
+                                minlength="2"
+                                class="rounded-md shadow-sm outline outline-light-gray p-2"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="flex flex-col px-4 pt-4 pb-5 gap-2 text-xl">
+                            <label for="description" class="self-start"
+                                >Description:</label
+                            >
+                            <input
+                                type="text"
+                                name="description"
+                                minlength="2"
+                                autocomplete="off"
+                                class="rounded-md shadow-sm outline outline-light-gray p-2"
+                            />
+                        </div>
+                        <div class="flex flex-col px-4 pb-5 gap-2 text-xl">
+                            <label for="dueDate" class="self-start"
+                                >Due Date:</label
+                            >
+                            <input
+                                type="date"
+                                name="dueDate"
+                                id="dueDate"
+                                class="rounded-md shadow-sm outline outline-light-gray p-2"
+                            />
+                        </div>
+                        <div class="flex flex-col px-4 pb-5 gap-2 text-xl">
+                            <label for="priority" class="self-start"
+                                >Priority:</label
+                            >
+                            <select
+                                name="priority"
+                                id="priority"
+                                class="rounded-md shadow-sm outline outline-light-gray p-2"
+                            >
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-12 aspect-square rounded-md bg-orange-500 text-white text-xl font-bold self-center mb-5"
+                        >
+                            +
+                        </button>
                     </div>
                 </form>
             </div>
