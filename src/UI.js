@@ -1,4 +1,4 @@
-import { readProject } from './projects';
+import { projectsList, readProject } from './projects';
 import { readTask } from './tasks';
 
 function openNewProjectModal() {
@@ -21,33 +21,43 @@ function closeNewProjectModal() {
     createNewProjectModal.classList.remove('flex');
 }
 
-function renderNewProjectCard(title, projectsIndex) {
+function renderProjects() {
     const projectsScroller = document.getElementById('projectsScroller');
-
-    projectsScroller.insertAdjacentHTML(
-        'beforeend',
-        `<div
+    projectsScroller.innerHTML = '';
+    projectsList.forEach((project) => {
+        projectsScroller.insertAdjacentHTML(
+            'beforeend',
+            `<div
                         class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
                         <div
-                            data-element="openReadProjectModalBtn"
+                            id="openProjectViewBtn"
                             class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
                         >
-                            <button
-                                data-projectsIndex=${projectsIndex}
-                                class="text-2xl mb-5"
-                            >
-                                ${title}
-                            </button>
+                            <p class="text-2xl mb-5">${project.title}</p>
                             <div class="h-[1.25px] w-full bg-white"></div>
                             <div class="h-full flex flex-col mt-5 gap-3">
+                                <div class="flex items-center gap-4 text-xl">
+                                    <i class="fa-regular fa-square"></i>
+                                    <p class="font-normal">Buy Groceries</p>
+                                </div>
+                                <div class="flex items-center gap-4 text-xl">
+                                    <i class="fa-regular fa-square"></i>
+                                    <p class="font-normal">Pay Bills</p>
+                                </div>
+                                <div class="flex items-center gap-4 text-xl">
+                                    <i class="fa-regular fa-square"></i>
+                                    <p class="font-normal">Cook Dinner</p>
+                                </div>
+                                <div class="flex items-center gap-4 text-xl">
+                                    <i class="fa-regular fa-square"></i>
+                                    <p class="font-normal">Feed Cats</p>
+                                </div>
                             </div>
-                            <!-- <button data-element="openDeleteProjectModalBtn">
-                                Delete Project
-                            </button> -->
                         </div>
                     </div>`
-    );
+        );
+    });
 }
 
 function openProjectView() {
@@ -69,15 +79,6 @@ function closeNewTaskModal() {
     overlay.classList.add('hidden');
     createNewTaskModal.classList.add('hidden');
     createNewTaskModal.classList.remove('flex');
-}
-
-function openReadTaskModal() {
-    readTask();
-    console.log('Read Task Modal Opened');
-}
-
-function openDeleteTaskModal() {
-    console.log('Delete Task Modal Opened');
 }
 
 function renderNewTaskCard() {
@@ -126,11 +127,9 @@ export {
     openNewProjectModal,
     closeNewProjectModal,
     openProjectView,
-    renderNewProjectCard,
+    renderProjects,
     openNewTaskModal,
     closeNewTaskModal,
-    openReadTaskModal,
-    openDeleteTaskModal,
     renderNewTaskCard,
     toggleView,
 };

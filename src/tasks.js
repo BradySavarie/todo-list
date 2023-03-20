@@ -1,25 +1,23 @@
 import { projectsList } from './projects';
 
 class Task {
-    constructor(title, description, dueDate, priority, projectsIndex) {
+    constructor(projectId, title, dueDate, priority) {
+        this.projectId = projectId;
         this.title = title;
-        this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.projectsIndex = projectsIndex;
         this.completed = false;
     }
 }
 
-function createTask(title, description, dueDate, priority, projectsIndex) {
-    const newTask = new Task(
-        title,
-        description,
-        dueDate,
-        priority,
-        projectsIndex
-    );
-    projectsList[projectsIndex].tasks.push(newTask);
+function createTask(projectId, title, dueDate, priority) {
+    const newTask = new Task(projectId, title, dueDate, priority);
+
+    projectsList.forEach((project) => {
+        if (project.id === projectId) {
+            project.tasks.push(newTask);
+        }
+    });
 }
 
 function readTask() {
@@ -28,11 +26,11 @@ function readTask() {
 
 function getTaskFormData(form) {
     const taskFormData = new FormData(form);
-    const [titlePair, descriptionPair, dueDatePair, priorityPair] =
+    const [projectIdPair, titlePair, dueDatePair, priorityPair] =
         taskFormData.entries();
     const values = [
+        projectIdPair[1],
         titlePair[1],
-        descriptionPair[1],
         dueDatePair[1],
         priorityPair[1],
     ];

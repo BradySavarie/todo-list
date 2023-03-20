@@ -4,20 +4,11 @@ import {
     openProjectView,
     openNewTaskModal,
     closeNewTaskModal,
-    openReadTaskModal,
-    openDeleteTaskModal,
-    renderNewProjectCard,
+    renderProjects,
     renderNewTaskCard,
     toggleView,
 } from './UI';
-import {
-    projectsList,
-    setActiveProject,
-    getActiveProject,
-    getActiveProjectIndex,
-    createProject,
-    getProjectFormData,
-} from './projects';
+import { projectsList, createProject, getProjectFormData } from './projects';
 import { createTask, getTaskFormData } from './tasks';
 
 const openNewProjectModalBtn = document.getElementById(
@@ -42,17 +33,14 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
     createProject(title, description);
-    const index = projectsList.length - 1;
-    setActiveProject(projectsList[index], index);
     closeNewProjectModal();
-    renderNewProjectCard(title, index);
+    renderProjects();
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [title, description, dueDate, priority] = getTaskFormData(e.target);
-    const index = getActiveProjectIndex();
-    createTask(title, description, dueDate, priority, index);
+    const [projectId, title, dueDate, priority] = getTaskFormData(e.target);
+    createTask(projectId, title, dueDate, priority);
     renderNewTaskCard();
 });
 
@@ -69,9 +57,9 @@ closeNewProjectModalBtn.addEventListener('click', () => {
     closeNewProjectModal();
 });
 
-openProjectViewBtn.addEventListener('click', () => {
+/* openProjectViewBtn.addEventListener('click', () => {
     openProjectView();
-});
+}); */
 
 openNewTaskModalBtn.addEventListener('click', () => {
     openNewTaskModal();

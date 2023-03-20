@@ -1,20 +1,17 @@
 const projectsList = [];
-let activeProject = {};
-let activeProjectIndex = 0;
 
 class Project {
     constructor(title, description) {
         this.title = title;
         this.description = description;
         this.tasks = [];
-        this.index = 0;
+        this.id = Date.now().toString();
     }
 }
 
 function createProject(title, description) {
     const newProject = new Project(title, description);
     projectsList.push(newProject);
-    newProject.index = projectsList.length - 1;
 }
 
 function readProject() {
@@ -29,19 +26,6 @@ function deleteProject() {
     console.log('Project Deleted');
 }
 
-function setActiveProject(project, index) {
-    activeProject = project;
-    activeProjectIndex = index;
-}
-
-function getActiveProject() {
-    return activeProject;
-}
-
-function getActiveProjectIndex() {
-    return activeProjectIndex;
-}
-
 function getProjectFormData(form) {
     const projectFormData = new FormData(form);
     const [titlePair, descriptionPair] = projectFormData.entries();
@@ -51,9 +35,6 @@ function getProjectFormData(form) {
 
 export {
     projectsList,
-    setActiveProject,
-    getActiveProject,
-    getActiveProjectIndex,
     createProject,
     readProject,
     updateProject,
