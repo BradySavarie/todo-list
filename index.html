@@ -52,40 +52,7 @@
                 <div
                     id="projectsScroller"
                     class="px-9 flex h-full whitespace-nowrap overflow-x-scroll mb-9 snap-x gap-5"
-                >
-                    <!-- Project Cards -->
-                    <div
-                        class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
-                    >
-                        <!-- Default Project -->
-                        <div
-                            id="openProjectViewBtn"
-                            data-projectsIndex="0"
-                            class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
-                        >
-                            <p class="text-2xl mb-5">Default Project</p>
-                            <div class="h-[1.25px] w-full bg-white"></div>
-                            <div class="h-full flex flex-col mt-5 gap-3">
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Buy Groceries</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Pay Bills</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Cook Dinner</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Feed Cats</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ></div>
             </div>
 
             <!-- Tasks Page -->
@@ -120,11 +87,8 @@
                     <!-- Default Task -->
                     <div class="outline flex h-[25%]">
                         <div class="flex items-center gap-4">
-                            <i class="fa-regular fa-square"></i>
-                            <div class="flex flex-col">
-                                <p class="text-xl">Buy Groceries</p>
-                                <p class="text-md">Task Description</p>
-                            </div>
+                            <input type="checkbox" />
+                            <p class="text-xl">Buy Groceries</p>
                         </div>
                         <div class="flex gap-2">
                             <button data-element="openReadTaskModalBtn">
@@ -242,8 +206,23 @@
                                 class="absolute right-4 top-2 text-sm"
                                 type="button"
                             >
-                                X
+                                &times;
                             </button>
+                        </div>
+                        <div
+                            class="flex flex-col px-4 gap-2 text-xl w-full mt-5"
+                        >
+                            <label for="project" class="self-start"
+                                >Project:</label
+                            >
+                            <select
+                                name="project"
+                                class="rounded-md shadow-sm outline outline-light-gray p-2 h-full"
+                            >
+                                <option value="0" selected>
+                                    Default Project
+                                </option>
+                            </select>
                         </div>
                         <div class="flex flex-col px-4 pt-4 gap-2 text-xl">
                             <label for="title" class="self-start">Title:</label>
@@ -255,19 +234,7 @@
                                 autocomplete="off"
                             />
                         </div>
-                        <div class="flex flex-col px-4 pt-4 pb-5 gap-2 text-xl">
-                            <label for="description" class="self-start"
-                                >Description:</label
-                            >
-                            <input
-                                type="text"
-                                name="description"
-                                minlength="2"
-                                autocomplete="off"
-                                class="rounded-md shadow-sm outline outline-light-gray p-2"
-                            />
-                        </div>
-                        <div class="w-full flex">
+                        <div class="w-full flex pt-4">
                             <div
                                 class="flex flex-col px-4 pb-5 gap-2 text-xl w-1/2"
                             >
