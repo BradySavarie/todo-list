@@ -21,47 +21,47 @@ function closeNewProjectModal() {
     createNewProjectModal.classList.remove('flex');
 }
 
-function renderProjects() {
+function renderProjectCards() {
     const projectsScroller = document.getElementById('projectsScroller');
     projectsScroller.innerHTML = '';
     projectsList.forEach((project) => {
         projectsScroller.insertAdjacentHTML(
             'beforeend',
             `<div
-                        class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
+                    data-projectKey=${project.id} class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
-                        <div
-                            id="openProjectViewBtn"
-                            class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
-                        >
-                            <p class="text-2xl mb-5">${project.title}</p>
-                            <div class="h-[1.25px] w-full bg-white"></div>
-                            <div class="h-full flex flex-col mt-5 gap-3">
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Buy Groceries</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Pay Bills</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Cook Dinner</p>
-                                </div>
-                                <div class="flex items-center gap-4 text-xl">
-                                    <i class="fa-regular fa-square"></i>
-                                    <p class="font-normal">Feed Cats</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`
+            <div
+                class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
+            >
+                <p class="text-2xl mb-5">${project.title}</p>
+                <div class="h-[1.25px] w-full bg-white"></div>
+                <div class="h-full flex flex-col mt-5 gap-3">
+                    <div class="flex items-center gap-4 text-xl">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="font-normal">Buy Groceries</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xl">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="font-normal">Pay Bills</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xl">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="font-normal">Cook Dinner</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xl">
+                        <i class="fa-regular fa-square"></i>
+                        <p class="font-normal">Feed Cats</p>
+                    </div>
+                </div>
+            </div>
+        </div>`
         );
     });
 }
 
-function openProjectView() {
-    readProject();
+function openProjectView(projectId) {
+    const project = readProject(projectId);
+    console.log(project);
     console.log('Read Project Modal Opened');
 }
 
@@ -127,7 +127,7 @@ export {
     openNewProjectModal,
     closeNewProjectModal,
     openProjectView,
-    renderProjects,
+    renderProjectCards,
     openNewTaskModal,
     closeNewTaskModal,
     renderNewTaskCard,

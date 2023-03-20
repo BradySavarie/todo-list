@@ -2,7 +2,7 @@ import './styles.css';
 import './handlers';
 import { createProject, projectsList } from './projects';
 import { createTask } from './tasks';
-import { renderProjects } from './UI';
+import { renderProjectCards } from './UI';
 
 createProject(
     'Default Project',
@@ -10,4 +10,4 @@ createProject(
 );
 createTask(`${projectsList[0].id}`, 'Default Task', '01-01-1998', 'medium');
 console.log(projectsList);
-renderProjects();
+renderProjectCards();

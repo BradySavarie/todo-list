@@ -14,8 +14,9 @@ function createProject(title, description) {
     projectsList.push(newProject);
 }
 
-function readProject() {
-    console.log('Project information Returned');
+function readProject(projectId) {
+    const project = projectsList.find((element) => element.id === projectId);
+    return project;
 }
 
 function updateProject() {
