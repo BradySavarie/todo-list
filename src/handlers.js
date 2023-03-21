@@ -3,9 +3,10 @@ import {
     closeNewProjectModal,
     openProjectView,
     openNewTaskModal,
+    updateNewTaskModal,
     closeNewTaskModal,
     renderProjectCards,
-    renderNewTaskCard,
+    renderTaskCards,
     toggleView,
 } from './UI';
 import { projectsList, createProject, getProjectFormData } from './projects';
@@ -28,6 +29,8 @@ const createNewTaskForm = document.getElementById('createNewTaskForm');
 
 // Event Listeners
 nav.addEventListener('click', (e) => {
+    renderProjectCards();
+    renderTaskCards();
     toggleView(e.target);
 });
 
@@ -35,6 +38,7 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, description] = getProjectFormData(e.target);
     createProject(title, description);
+    updateNewTaskModal();
     closeNewProjectModal();
     renderProjectCards();
 });
@@ -43,7 +47,8 @@ createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [projectId, title, dueDate, priority] = getTaskFormData(e.target);
     createTask(projectId, title, dueDate, priority);
-    renderNewTaskCard();
+    closeNewTaskModal();
+    renderTaskCards();
 });
 
 overlay.addEventListener('click', () => {

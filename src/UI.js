@@ -73,6 +73,19 @@ function openNewTaskModal() {
     createNewTaskModal.classList.add('flex');
 }
 
+function updateNewTaskModal() {
+    const selectProjectDropdown = document.getElementById(
+        'selectProjectDropdown'
+    );
+    selectProjectDropdown.innerHTML = '';
+    projectsList.forEach((project) => {
+        const option = document.createElement('option');
+        option.innerText = `${project.title}`;
+        option.setAttribute('value', `${project.id}`);
+        selectProjectDropdown.appendChild(option);
+    });
+}
+
 function closeNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     const overlay = document.getElementById('overlay');
@@ -81,19 +94,32 @@ function closeNewTaskModal() {
     createNewTaskModal.classList.remove('flex');
 }
 
-function renderNewTaskCard() {
+function renderTaskCards() {
     const tasksContainer = document.getElementById('tasksContainer');
-    const newTaskCard = document.createElement('div');
-
-    newTaskCard.innerHTML = `<h1>Task Title</h1>
-                        <p>Task Description</p>
-                        <button data-element="openReadTaskModalBtn">
-                            View Task
-                        </button>
-                        <button data-element="openDeleteTaskModalBtn">
-                            Delete Task
-                        </button>`;
-    tasksContainer.appendChild(newTaskCard);
+    tasksContainer.innerHTML = '';
+    projectsList.forEach((project) => {
+        project.tasks.forEach((task) => {
+            tasksContainer.insertAdjacentHTML(
+                'afterbegin',
+                `<div
+                        class="flex justify-between items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
+            >
+                <div class="flex items-center gap-4">
+                    <input type="checkbox" />
+                    <p class="text-xl">${task.title}</p>
+                </div>
+                <div class="flex gap-4 text-xl">
+                    <button data-element="openReadTaskModalBtn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <button data-element="openDeleteTaskModalBtn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>`
+            );
+        });
+    });
 }
 
 function toggleView(selection) {
@@ -129,7 +155,8 @@ export {
     openProjectView,
     renderProjectCards,
     openNewTaskModal,
+    updateNewTaskModal,
     closeNewTaskModal,
-    renderNewTaskCard,
+    renderTaskCards,
     toggleView,
 };
