@@ -84,7 +84,25 @@
                 <div
                     id="tasksContainer"
                     class="px-9 flex flex-col h-full whitespace-nowrap overflow-y-scroll mb-9 snap-x gap-5"
-                ></div>
+                >
+                    <!-- Default Task -->
+                    <div
+                        class="flex justify-between items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
+                    >
+                        <div class="flex items-center gap-4">
+                            <input type="checkbox" />
+                            <p class="text-xl">Buy Groceries</p>
+                        </div>
+                        <div class="flex gap-4 text-xl">
+                            <button data-element="openReadTaskModalBtn">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button data-element="openDeleteTaskModalBtn">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Nav -->
