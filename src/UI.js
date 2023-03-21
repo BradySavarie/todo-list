@@ -26,7 +26,7 @@ function renderProjectCards() {
     projectsScroller.innerHTML = '';
     projectsList.forEach((project) => {
         projectsScroller.insertAdjacentHTML(
-            'beforeend',
+            'afterbegin',
             `<div
                     data-projectKey=${project.id} class="h-full min-w-[80%] flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
