@@ -90,19 +90,6 @@ function openNewTaskModal() {
     createNewTaskModal.classList.add('flex');
 }
 
-function updateNewTaskModal() {
-    const selectProjectDropdown = document.getElementById(
-        'selectProjectDropdown'
-    );
-    selectProjectDropdown.innerHTML = '';
-    projectsList.forEach((project) => {
-        const option = document.createElement('option');
-        option.innerText = `${project.title}`;
-        option.setAttribute('value', `${project.id}`);
-        selectProjectDropdown.appendChild(option);
-    });
-}
-
 function closeNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     const overlay = document.getElementById('overlay');
@@ -139,6 +126,19 @@ function renderTaskCards() {
     });
 }
 
+function updateNewTaskModal() {
+    const selectProjectDropdown = document.getElementById(
+        'selectProjectDropdown'
+    );
+    selectProjectDropdown.innerHTML = '';
+    projectsList.forEach((project) => {
+        const option = document.createElement('option');
+        option.innerText = `${project.title}`;
+        option.setAttribute('value', `${project.id}`);
+        selectProjectDropdown.appendChild(option);
+    });
+}
+
 function toggleView(selection) {
     const projectsPage = document.getElementById('projectsPage');
     const projectsPageBtn = document.getElementById('projectsPageBtn');
@@ -169,12 +169,12 @@ function toggleView(selection) {
 export {
     openNewProjectModal,
     closeNewProjectModal,
+    renderProjectCards,
     openUpdateProjectModal,
     closeUpdateProjectModal,
-    renderProjectCards,
     openNewTaskModal,
-    updateNewTaskModal,
     closeNewTaskModal,
     renderTaskCards,
+    updateNewTaskModal,
     toggleView,
 };

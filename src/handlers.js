@@ -4,8 +4,8 @@ import {
     openUpdateProjectModal,
     closeUpdateProjectModal,
     openNewTaskModal,
-    updateNewTaskModal,
     closeNewTaskModal,
+    updateNewTaskModal,
     renderProjectCards,
     renderTaskCards,
     toggleView,
@@ -29,21 +29,16 @@ const closeNewProjectModalBtn = document.getElementById(
 const closeUpdateProjectModalBtn = document.getElementById(
     'closeUpdateProjectModalBtn'
 );
-const projectsScroller = document.getElementById('projectsScroller');
 const openNewTaskModalBtn = document.getElementById('openNewTaskModalBtn');
 const closeNewTaskModalBtn = document.getElementById('closeNewTaskModalBtn');
-const nav = document.getElementById('nav');
-const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
 const updateProjectForm = document.getElementById('updateProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
+const projectsScroller = document.getElementById('projectsScroller');
+const nav = document.getElementById('nav');
+const overlay = document.getElementById('overlay');
 
 // Event Listeners
-nav.addEventListener('click', (e) => {
-    renderProjectCards();
-    renderTaskCards();
-    toggleView(e.target);
-});
 
 createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -52,6 +47,26 @@ createNewProjectForm.addEventListener('submit', (e) => {
     updateNewTaskModal();
     closeNewProjectModal();
     renderProjectCards();
+});
+
+openNewProjectModalBtn.addEventListener('click', () => {
+    openNewProjectModal();
+});
+
+closeNewProjectModalBtn.addEventListener('click', () => {
+    closeNewProjectModal();
+});
+
+closeUpdateProjectModalBtn.addEventListener('click', () => {
+    closeUpdateProjectModal();
+});
+
+openNewTaskModalBtn.addEventListener('click', () => {
+    openNewTaskModal();
+});
+
+closeNewTaskModalBtn.addEventListener('click', () => {
+    closeNewTaskModal();
 });
 
 updateProjectForm.addEventListener('submit', (e) => {
@@ -70,28 +85,6 @@ createNewTaskForm.addEventListener('submit', (e) => {
     renderTaskCards();
 });
 
-overlay.addEventListener('click', () => {
-    closeNewProjectModal();
-    closeNewTaskModal();
-    closeUpdateProjectModal();
-});
-
-openNewProjectModalBtn.addEventListener('click', () => {
-    openNewProjectModal();
-});
-
-closeNewProjectModalBtn.addEventListener('click', () => {
-    closeNewProjectModal();
-});
-
-openNewTaskModalBtn.addEventListener('click', () => {
-    openNewTaskModal();
-});
-
-closeNewTaskModalBtn.addEventListener('click', () => {
-    closeNewTaskModal();
-});
-
 projectsScroller.addEventListener('click', (e) => {
     const target = e.target.closest('[data-projectKey]');
     if (e.target.id === 'openUpdateProjectModalBtn') {
@@ -99,6 +92,14 @@ projectsScroller.addEventListener('click', (e) => {
     }
 });
 
-closeUpdateProjectModalBtn.addEventListener('click', () => {
+nav.addEventListener('click', (e) => {
+    renderProjectCards();
+    renderTaskCards();
+    toggleView(e.target);
+});
+
+overlay.addEventListener('click', () => {
+    closeNewProjectModal();
+    closeNewTaskModal();
     closeUpdateProjectModal();
 });
