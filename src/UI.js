@@ -70,6 +70,7 @@ function openUpdateProjectModal(projectId) {
     const projectIdInput = document.createElement('input');
     projectIdInput.setAttribute('type', 'hidden');
     projectIdInput.setAttribute('value', `${projectId}`);
+    projectIdInput.setAttribute('name', 'projectId');
     updateProjectForm.appendChild(projectIdInput);
 }
 

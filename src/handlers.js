@@ -10,7 +10,13 @@ import {
     renderTaskCards,
     toggleView,
 } from './UI';
-import { projectsList, createProject, getProjectFormData } from './projects';
+import {
+    projectsList,
+    createProject,
+    updateProject,
+    getProjectFormData,
+    getUpdateProjectFormData,
+} from './projects';
 import { createTask, getTaskFormData } from './tasks';
 
 // DOM Selections
@@ -29,6 +35,7 @@ const closeNewTaskModalBtn = document.getElementById('closeNewTaskModalBtn');
 const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 const createNewProjectForm = document.getElementById('createNewProjectForm');
+const updateProjectForm = document.getElementById('updateProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
 
 // Event Listeners
@@ -44,6 +51,14 @@ createNewProjectForm.addEventListener('submit', (e) => {
     createProject(title);
     updateNewTaskModal();
     closeNewProjectModal();
+    renderProjectCards();
+});
+
+updateProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const [title, projectId] = getUpdateProjectFormData(e.target);
+    updateProject(title, projectId);
+    closeUpdateProjectModal();
     renderProjectCards();
 });
 

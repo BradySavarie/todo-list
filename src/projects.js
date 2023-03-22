@@ -18,8 +18,9 @@ function readProject(projectId) {
     return project;
 }
 
-function updateProject() {
-    console.log('Project updated');
+function updateProject(title, projectId) {
+    const project = projectsList.find((element) => element.id === projectId);
+    project.title = title;
 }
 
 function deleteProject() {
@@ -33,6 +34,13 @@ function getProjectFormData(form) {
     return values;
 }
 
+function getUpdateProjectFormData(form) {
+    const updateProjectFormData = new FormData(form);
+    const [titlePair, idPair] = updateProjectFormData.entries();
+    const values = [titlePair[1], idPair[1]];
+    return values;
+}
+
 export {
     projectsList,
     createProject,
@@ -40,4 +48,5 @@ export {
     updateProject,
     deleteProject,
     getProjectFormData,
+    getUpdateProjectFormData,
 };
