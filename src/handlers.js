@@ -1,7 +1,7 @@
 import {
     openNewProjectModal,
     closeNewProjectModal,
-    openProjectView,
+    openUpdateProjectModal,
     openNewTaskModal,
     updateNewTaskModal,
     closeNewTaskModal,
@@ -36,8 +36,8 @@ nav.addEventListener('click', (e) => {
 
 createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [title, description] = getProjectFormData(e.target);
-    createProject(title, description);
+    const [title] = getProjectFormData(e.target);
+    createProject(title);
     updateNewTaskModal();
     closeNewProjectModal();
     renderProjectCards();
@@ -72,9 +72,10 @@ closeNewTaskModalBtn.addEventListener('click', () => {
     closeNewTaskModal();
 });
 
+// update this
 projectsScroller.addEventListener('click', (e) => {
     const target = e.target.closest('[data-projectKey]');
     if (target) {
-        openProjectView(target.dataset.projectkey);
+        openUpdateProjectModal(target.dataset.projectkey);
     }
 });

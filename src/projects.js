@@ -1,16 +1,15 @@
 const projectsList = [];
 
 class Project {
-    constructor(title, description) {
+    constructor(title) {
         this.title = title;
-        this.description = description;
         this.tasks = [];
         this.id = Date.now().toString();
     }
 }
 
-function createProject(title, description) {
-    const newProject = new Project(title, description);
+function createProject(title) {
+    const newProject = new Project(title);
     projectsList.push(newProject);
 }
 
@@ -29,8 +28,8 @@ function deleteProject() {
 
 function getProjectFormData(form) {
     const projectFormData = new FormData(form);
-    const [titlePair, descriptionPair] = projectFormData.entries();
-    const values = [titlePair[1], descriptionPair[1]];
+    const [titlePair] = projectFormData.entries();
+    const values = [titlePair[1]];
     return values;
 }
 

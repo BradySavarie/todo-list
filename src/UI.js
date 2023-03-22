@@ -33,7 +33,10 @@ function renderProjectCards() {
             <div
                 class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
             >
-                <p class="text-2xl mb-5">${project.title}</p>
+                <div class='flex justify-between gap-4 w-full items-center text-2xl mb-5'>
+                    <p>${project.title}</p>
+                    <i class="hover:cursor-pointer mr-8 fa-solid fa-pen-to-square"></i>
+                </div>
                 <div class="h-[1.25px] w-full bg-white"></div>
                 <div  id='projectCardTasksContainer' class="overflow-y-scroll h-full w-full flex flex-col mt-5 gap-3">
                 </div>
@@ -47,7 +50,7 @@ function renderProjectCards() {
             projectCardTasksContainer.insertAdjacentHTML(
                 'beforeend',
                 `<div class="flex items-center gap-4 text-xl">
-                        <i class="fa-regular fa-square"></i>
+                        <input type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md'>
                         <p class="font-normal">${task.title}</p>
                 </div>`
             );
@@ -55,10 +58,8 @@ function renderProjectCards() {
     });
 }
 
-function openProjectView(projectId) {
-    const project = readProject(projectId);
-    console.log(project);
-    console.log('Read Project Modal Opened');
+function openUpdateProjectModal(projectId) {
+    console.log('Update Project Modal Opened');
 }
 
 function openNewTaskModal() {
@@ -101,7 +102,7 @@ function renderTaskCards() {
                         class="flex justify-between items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
             >
                 <div class="flex items-center gap-4">
-                    <input type="checkbox" />
+                    <input type="checkbox" class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' />
                     <p class="text-xl">${task.title}</p>
                 </div>
                 <div class="flex gap-4 text-xl">
@@ -148,7 +149,7 @@ function toggleView(selection) {
 export {
     openNewProjectModal,
     closeNewProjectModal,
-    openProjectView,
+    openUpdateProjectModal,
     renderProjectCards,
     openNewTaskModal,
     updateNewTaskModal,
