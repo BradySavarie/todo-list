@@ -2,6 +2,7 @@ import {
     openNewProjectModal,
     closeNewProjectModal,
     openUpdateProjectModal,
+    closeUpdateProjectModal,
     openNewTaskModal,
     updateNewTaskModal,
     closeNewTaskModal,
@@ -18,6 +19,9 @@ const openNewProjectModalBtn = document.getElementById(
 );
 const closeNewProjectModalBtn = document.getElementById(
     'closeNewProjectModalBtn'
+);
+const closeUpdateProjectModalBtn = document.getElementById(
+    'closeUpdateProjectModalBtn'
 );
 const projectsScroller = document.getElementById('projectsScroller');
 const openNewTaskModalBtn = document.getElementById('openNewTaskModalBtn');
@@ -54,6 +58,7 @@ createNewTaskForm.addEventListener('submit', (e) => {
 overlay.addEventListener('click', () => {
     closeNewProjectModal();
     closeNewTaskModal();
+    closeUpdateProjectModal();
 });
 
 openNewProjectModalBtn.addEventListener('click', () => {
@@ -72,10 +77,13 @@ closeNewTaskModalBtn.addEventListener('click', () => {
     closeNewTaskModal();
 });
 
-// update this
 projectsScroller.addEventListener('click', (e) => {
     const target = e.target.closest('[data-projectKey]');
-    if (target) {
+    if (e.target.id === 'openUpdateProjectModalBtn') {
         openUpdateProjectModal(target.dataset.projectkey);
     }
+});
+
+closeUpdateProjectModalBtn.addEventListener('click', () => {
+    closeUpdateProjectModal();
 });

@@ -35,7 +35,7 @@ function renderProjectCards() {
             >
                 <div class='flex justify-between gap-4 w-full items-center text-2xl mb-5'>
                     <p>${project.title}</p>
-                    <i class="hover:cursor-pointer mr-8 fa-solid fa-pen-to-square"></i>
+                    <i id='openUpdateProjectModalBtn' class="hover:cursor-pointer mr-8 fa-solid fa-pen-to-square"></i>
                 </div>
                 <div class="h-[1.25px] w-full bg-white"></div>
                 <div  id='projectCardTasksContainer' class="overflow-y-scroll h-full w-full flex flex-col mt-5 gap-3">
@@ -59,7 +59,26 @@ function renderProjectCards() {
 }
 
 function openUpdateProjectModal(projectId) {
-    console.log('Update Project Modal Opened');
+    const updateProjectModal = document.getElementById('updateProjectModal');
+    const updateProjectForm = document.getElementById('updateProjectForm');
+    const overlay = document.getElementById('overlay');
+
+    overlay.classList.remove('hidden');
+    updateProjectModal.classList.remove('hidden');
+    updateProjectModal.classList.add('flex');
+
+    const projectIdInput = document.createElement('input');
+    projectIdInput.setAttribute('type', 'hidden');
+    projectIdInput.setAttribute('value', `${projectId}`);
+    updateProjectForm.appendChild(projectIdInput);
+}
+
+function closeUpdateProjectModal() {
+    const updateProjectModal = document.getElementById('updateProjectModal');
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add('hidden');
+    updateProjectModal.classList.add('hidden');
+    updateProjectModal.classList.remove('flex');
 }
 
 function openNewTaskModal() {
@@ -150,6 +169,7 @@ export {
     openNewProjectModal,
     closeNewProjectModal,
     openUpdateProjectModal,
+    closeUpdateProjectModal,
     renderProjectCards,
     openNewTaskModal,
     updateNewTaskModal,
