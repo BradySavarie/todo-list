@@ -2,8 +2,7 @@
 
     Projects Page
 
-        - Make project card content dynamically generated from project object
-            - Card defaults to rendering an "empty" message with project title, and then replaces content with tasks once they are added to project.
+        - Card defaults to rendering an "empty" message with project title, and then replaces content with tasks once they are added to project.
         - Make each project card not expand in width as their text content increases. Title should wrap and task info should not wrap and be hidden on overflow, with a vertical scroll when extra space is needed.
         - When tasks are added to project card, ensure they are styled with a strikethrough when marked as complete
         - If default task is deleted, show empty message on projects page

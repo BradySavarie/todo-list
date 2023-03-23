@@ -106,20 +106,28 @@ function renderTaskCards() {
             tasksContainer.insertAdjacentHTML(
                 'afterbegin',
                 `<div
-                        class="flex justify-between items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
+                        class="flex items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
             >
-                <div class="flex items-center gap-4">
-                    <input type="checkbox" class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' />
-                    <p class="text-xl">${task.title}</p>
+            <div class='flex flex-col w-full'>
+                <div class='flex justify-between mb-1'>
+                    <div class="flex items-center gap-4">
+                        <input type="checkbox" class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' />
+                        <p class="text-xl">${task.title}</p>
+                    </div>
+                    <div class="flex gap-4 text-xl">
+                        <button data-element="openReadTaskModalBtn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button data-element="openDeleteTaskModalBtn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="flex gap-4 text-xl">
-                    <button data-element="openReadTaskModalBtn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button data-element="openDeleteTaskModalBtn">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                <div class='pl-8 flex w-full justify-between'>
+                    <p><em><strong>Priority: </strong>${task.priority}</em></p>
+                    <p><em><strong>Due: </strong>${task.dueDate}</em></p>
                 </div>
+            </div>
             </div>`
             );
         });
