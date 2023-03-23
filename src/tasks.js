@@ -3,6 +3,7 @@ import { projectsList } from './projects';
 class Task {
     constructor(projectId, title, dueDate, priority) {
         this.projectId = projectId;
+        this.taskId = Date.now().toString();
         this.title = title;
         this.dueDate = dueDate;
         this.priority = priority;
@@ -17,6 +18,20 @@ function createTask(projectId, title, dueDate, priority) {
         if (project.id === projectId) {
             project.tasks.push(newTask);
         }
+    });
+}
+
+function updateCompletedStatus(taskId) {
+    projectsList.forEach((project) => {
+        project.tasks.forEach((task) => {
+            if (task.taskId === taskId) {
+                if (task.completed) {
+                    task.completed = false;
+                } else {
+                    task.completed = true;
+                }
+            }
+        });
     });
 }
 
@@ -37,4 +52,4 @@ function getTaskFormData(form) {
     return values;
 }
 
-export { createTask, readTask, getTaskFormData };
+export { createTask, updateCompletedStatus, readTask, getTaskFormData };

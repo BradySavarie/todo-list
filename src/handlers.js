@@ -17,7 +17,7 @@ import {
     getProjectFormData,
     getUpdateProjectFormData,
 } from './projects';
-import { createTask, getTaskFormData } from './tasks';
+import { createTask, updateCompletedStatus, getTaskFormData } from './tasks';
 
 // DOM Selections
 const openNewProjectModalBtn = document.getElementById(
@@ -35,6 +35,7 @@ const createNewProjectForm = document.getElementById('createNewProjectForm');
 const updateProjectForm = document.getElementById('updateProjectForm');
 const createNewTaskForm = document.getElementById('createNewTaskForm');
 const projectsScroller = document.getElementById('projectsScroller');
+const tasksContainer = document.getElementById('tasksContainer');
 const nav = document.getElementById('nav');
 const overlay = document.getElementById('overlay');
 
@@ -89,6 +90,17 @@ projectsScroller.addEventListener('click', (e) => {
     const target = e.target.closest('[data-projectKey]');
     if (e.target.id === 'openUpdateProjectModalBtn') {
         openUpdateProjectModal(target.dataset.projectkey);
+    } else if (e.target.matches('input')) {
+        const task = e.target.closest('[data-taskKey]');
+        updateCompletedStatus(task.dataset.taskkey);
+        renderProjectCards();
+    }
+});
+
+tasksContainer.addEventListener('click', (e) => {
+    const target = e.target.closest('input');
+    if (target) {
+        console.log(target);
     }
 });
 

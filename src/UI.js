@@ -47,13 +47,23 @@ function renderProjectCards() {
             const projectCardTasksContainer = document.getElementById(
                 'projectCardTasksContainer'
             );
-            projectCardTasksContainer.insertAdjacentHTML(
-                'beforeend',
-                `<div class="flex items-center gap-4 text-xl">
-                        <input type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md'>
-                        <p class="font-normal">${task.title}</p>
+            if (task.completed) {
+                projectCardTasksContainer.insertAdjacentHTML(
+                    'beforeend',
+                    `<div data-taskKey=${task.taskId} class="flex items-center gap-4 text-xl">
+                        <input id='projectCardTaskCheckbox' type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' checked>
+                        <p id='projectCardTaskTitle' class="font-normal"><strike>${task.title}</strike></p>
                 </div>`
-            );
+                );
+            } else if (!task.completed) {
+                projectCardTasksContainer.insertAdjacentHTML(
+                    'beforeend',
+                    `<div data-taskKey=${task.taskId} class="flex items-center gap-4 text-xl">
+                        <input id='projectCardTaskCheckbox' type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md'>
+                        <p id='projectCardTaskTitle' class="font-normal">${task.title}</p>
+                </div>`
+                );
+            }
         });
     });
 }
@@ -106,13 +116,13 @@ function renderTaskCards() {
             tasksContainer.insertAdjacentHTML(
                 'afterbegin',
                 `<div
-                        class="flex items-center h-[25%] w-full rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white p-4"
+                        data-taskKey=${task.taskId} class="flex items-center h-[25%] w-full rounded-xl border-2 bg-gray-50 shadow-md border-orange-500 text-black p-4"
             >
             <div class='flex flex-col w-full'>
                 <div class='flex justify-between mb-1'>
                     <div class="flex items-center gap-4">
-                        <input type="checkbox" class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' />
-                        <p class="text-xl">${task.title}</p>
+                        <input type="checkbox" class='w-4 h-4 border-orange-400 rounded-md' />
+                        <p id='taskTitle' class="text-xl">${task.title}</p>
                     </div>
                     <div class="flex gap-4 text-xl">
                         <button data-element="openReadTaskModalBtn">
