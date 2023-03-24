@@ -2,13 +2,7 @@
 
     Projects Page
 
-        - Card defaults to rendering an "empty" message with project title, and then replaces content with tasks once they are added to project.
         - Create a delete button that deletes the project and its contents (no confirmation modal necessary)
-        - If default task is deleted, show empty message on projects page
-        - Validate form info so no empty inputs can be submitted
-        - Add priority and due date information to the tasks on each project card
-        - restyle project cards to match task page
-        - Make the page responsive
     
     Tasks Page
 
@@ -16,6 +10,7 @@
         - Create the update task modal and make it functional
         - Make tasks deletable
 
+    - Make the design responsive
     - Add local storage to project
     - Consider reformatting displayed dates on cards using date-fns
     - Maybe add in some sort of filtering functionality to learn how that's done

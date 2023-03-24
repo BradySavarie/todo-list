@@ -98,9 +98,13 @@ projectsScroller.addEventListener('click', (e) => {
 });
 
 tasksContainer.addEventListener('click', (e) => {
-    const target = e.target.closest('input');
-    if (target) {
-        console.log(target);
+    /* const target = e.target.closest('[data-taskKey]');
+    if (e.target.id === 'openUpdateTaskModalBtn') {
+        openUpdateTaskModal(target.dataset.taskkey);
+    } else */ if (e.target.matches('input')) {
+        const task = e.target.closest('[data-taskKey]');
+        updateCompletedStatus(task.dataset.taskkey);
+        renderTaskCards();
     }
 });
 
