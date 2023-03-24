@@ -3,23 +3,19 @@
     Projects Page
 
         - Card defaults to rendering an "empty" message with project title, and then replaces content with tasks once they are added to project.
-        - Make each project card not expand in width as their text content increases. Title should wrap and task info should not wrap and be hidden on overflow, with a vertical scroll when extra space is needed.
-        - When tasks are added to project card, ensure they are styled with a strikethrough when marked as complete
+        - Create a delete button that deletes the project and its contents (no confirmation modal necessary)
         - If default task is deleted, show empty message on projects page
-
-    Project View
-
-     - List all information and tasks associated with selected project
-     - Make each field editable and add an update button
-     - Create a delete button that deletes the project and its contents (no confirmation modal necessary)
+        - Validate form info so no empty inputs can be submitted
+        - Add priority and due date information to the tasks on each project card
+        - restyle project cards to match task page
+        - Make the page responsive
     
     Tasks Page
 
-        - When new tasks are created, append them to a selected project
-        - Create and style the section that holds each task
-    
-    Task View
+        - Add mark as complete functionality to each task
+        - Create the update task modal and make it functional
+        - Make tasks deletable
 
-    - List all information associated with selected task
-    - Make each field editable and add an update button
-    - Create a delete task button
+    - Add local storage to project
+    - Consider reformatting displayed dates on cards using date-fns
+    - Maybe add in some sort of filtering functionality to learn how that's done

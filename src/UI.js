@@ -31,7 +31,7 @@ function renderProjectCards() {
                     data-projectKey=${project.id} class="h-full min-w-[80%] overflow-y-scroll flex grow shrink-0 basis-auto snap-center shadow-md"
                     >
             <div
-                class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md"
+                class="flex flex-col justify-start items-start cursor-pointer rounded-xl bg-gradient-to-b from-orange-400 to-orange-500 text-white w-full font-Lato font-bold pl-10 pt-14 shadow-md "
             >
                 <div class='flex justify-between gap-4 w-full items-center text-2xl mb-5'>
                     <p>${project.title}</p>
@@ -50,18 +50,52 @@ function renderProjectCards() {
             if (task.completed) {
                 projectCardTasksContainer.insertAdjacentHTML(
                     'beforeend',
-                    `<div data-taskKey=${task.taskId} class="flex items-center gap-4 text-xl">
-                        <input id='projectCardTaskCheckbox' type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md' checked>
-                        <p id='projectCardTaskTitle' class="font-normal"><strike>${task.title}</strike></p>
-                </div>`
+                    `<div
+                        data-taskKey=${task.taskId} class="flex items-center mr-8 rounded-xl bg-gray-50 shadow-md text-black p-4"
+            >
+            <div class='flex flex-col w-full'>
+                <div class='flex justify-between mb-1'>
+                    <div class="flex items-center gap-4">
+                        <input type="checkbox" class='w-4 h-4 border-orange-400 rounded-md' checked/>
+                        <p id='taskTitle' class="text-xl"><strike>${task.title}</strike></p>
+                    </div>
+                    <div class="flex gap-4 text-xl">
+                        <button data-element="openDeleteTaskModalBtn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class='pl-8 flex flex-col w-full justify-between'>
+                    <p><em><strong>Priority: </strong>${task.priority}</em></p>
+                    <p><em><strong>Due: </strong>${task.dueDate}</em></p>
+                </div>
+            </div>
+            </div>`
                 );
             } else if (!task.completed) {
                 projectCardTasksContainer.insertAdjacentHTML(
                     'beforeend',
-                    `<div data-taskKey=${task.taskId} class="flex items-center gap-4 text-xl">
-                        <input id='projectCardTaskCheckbox' type='checkbox' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-md'>
-                        <p id='projectCardTaskTitle' class="font-normal">${task.title}</p>
-                </div>`
+                    `<div
+                        data-taskKey=${task.taskId} class="flex items-center mr-8 rounded-xl bg-gray-50 shadow-md text-black p-4"
+            >
+            <div class='flex flex-col w-full'>
+                <div class='flex justify-between mb-1'>
+                    <div class="flex items-center gap-4">
+                        <input type="checkbox" class='w-4 h-4 border-orange-400 rounded-md' />
+                        <p id='taskTitle' class="text-xl">${task.title}</p>
+                    </div>
+                    <div class="flex gap-4 text-xl">
+                        <button data-element="openDeleteTaskModalBtn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class='pl-8 flex flex-col w-full justify-between'>
+                    <p><em><strong>Priority: </strong>${task.priority}</em></p>
+                    <p><em><strong>Due: </strong>${task.dueDate}</em></p>
+                </div>
+            </div>
+            </div>`
                 );
             }
         });
