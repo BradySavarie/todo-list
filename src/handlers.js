@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 import {
     openNewProjectModal,
     closeNewProjectModal,
@@ -100,7 +102,8 @@ updateProjectForm.addEventListener('submit', (e) => {
 updateTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, dueDate, priority, taskId] = getUpdateTaskFormData(e.target);
-    updateTask(title, dueDate, priority, taskId);
+    const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
+    updateTask(title, formattedDueDate, priority, taskId);
     closeUpdateTaskModal();
     renderTaskCards();
 });
@@ -108,7 +111,8 @@ updateTaskForm.addEventListener('submit', (e) => {
 createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [projectId, title, dueDate, priority] = getTaskFormData(e.target);
-    createTask(projectId, title, dueDate, priority);
+    const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
+    createTask(projectId, title, formattedDueDate, priority);
     closeNewTaskModal();
     renderTaskCards();
 });
