@@ -35,6 +35,7 @@ function getProjectFormData(form) {
 }
 
 function getUpdateProjectFormData(form) {
+    console.log(form);
     const updateProjectFormData = new FormData(form);
     const [titlePair, idPair] = updateProjectFormData.entries();
     const values = [titlePair[1], idPair[1]];

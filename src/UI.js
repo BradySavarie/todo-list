@@ -134,6 +134,14 @@ function openNewTaskModal() {
     createNewTaskModal.classList.add('flex');
 }
 
+function closeUpdateTaskModal() {
+    const updateTaskModal = document.getElementById('updateTaskModal');
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add('hidden');
+    updateTaskModal.classList.add('hidden');
+    updateTaskModal.classList.remove('flex');
+}
+
 function closeNewTaskModal() {
     const createNewTaskModal = document.getElementById('createNewTaskModal');
     const overlay = document.getElementById('overlay');
@@ -160,8 +168,8 @@ function renderTaskCards() {
                         <p id='taskTitle' class="text-xl"><strike>${task.title}</strike></p>
                     </div>
                     <div class="flex gap-4 text-xl">
-                        <button data-element="openReadTaskModalBtn">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                        <button>
+                            <i id="openUpdateTaskModalBtn" class="fa-solid fa-pen-to-square"></i>
                         </button>
                         <button data-element="openDeleteTaskModalBtn">
                             <i class="fa-solid fa-trash"></i>
@@ -188,8 +196,8 @@ function renderTaskCards() {
                         <p id='taskTitle' class="text-xl">${task.title}</p>
                     </div>
                     <div class="flex gap-4 text-xl">
-                        <button data-element="openReadTaskModalBtn">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                        <button>
+                            <i id="openUpdateTaskModalBtn" class="fa-solid fa-pen-to-square"></i>
                         </button>
                         <button data-element="openDeleteTaskModalBtn">
                             <i class="fa-solid fa-trash"></i>
@@ -206,6 +214,16 @@ function renderTaskCards() {
             }
         });
     });
+}
+
+function openUpdateTaskModal(taskId) {
+    const updateTaskModal = document.getElementById('updateTaskModal');
+    const updateTaskForm = document.getElementById('updateTaskForm');
+    const overlay = document.getElementById('overlay');
+
+    overlay.classList.remove('hidden');
+    updateTaskModal.classList.remove('hidden');
+    updateTaskModal.classList.add('flex');
 }
 
 function updateNewTaskModal() {
@@ -257,6 +275,8 @@ export {
     openNewTaskModal,
     closeNewTaskModal,
     renderTaskCards,
+    openUpdateTaskModal,
+    closeUpdateTaskModal,
     updateNewTaskModal,
     toggleView,
 };
