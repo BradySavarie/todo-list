@@ -6,7 +6,6 @@
     
     Tasks Page
 
-        - Add mark as complete functionality to each task
         - Create the update task modal and make it functional
         - Make tasks deletable
 
