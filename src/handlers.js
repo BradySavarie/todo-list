@@ -16,6 +16,7 @@ import {
     projectsList,
     createProject,
     updateProject,
+    deleteProject,
     getProjectFormData,
     getUpdateProjectFormData,
 } from './projects';
@@ -91,6 +92,7 @@ updateProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, projectId] = getUpdateProjectFormData(e.target);
     updateProject(title, projectId);
+    updateNewTaskModal();
     closeUpdateProjectModal();
     renderProjectCards();
 });
@@ -116,6 +118,9 @@ projectsScroller.addEventListener('click', (e) => {
     const targetTaskKey = e.target.closest('[data-taskKey]');
     if (e.target.id === 'openUpdateProjectModalBtn') {
         openUpdateProjectModal(targetProjectKey.dataset.projectkey);
+    } else if (e.target.id === 'deleteProjectBtn') {
+        deleteProject(targetProjectKey.dataset.projectkey);
+        renderProjectCards();
     } else if (e.target.id === 'deleteTaskBtn') {
         deleteTask(targetTaskKey.dataset.taskkey);
         renderProjectCards();
@@ -126,12 +131,14 @@ projectsScroller.addEventListener('click', (e) => {
 });
 
 tasksContainer.addEventListener('click', (e) => {
-    const target = e.target.closest('[data-taskKey]');
+    const targetTaskKey = e.target.closest('[data-taskKey]');
     if (e.target.id === 'openUpdateTaskModalBtn') {
-        openUpdateTaskModal(target.dataset.taskkey);
+        openUpdateTaskModal(targetTaskKey.dataset.taskkey);
+    } else if (e.target.id === 'deleteTaskBtn') {
+        deleteTask(targetTaskKey.dataset.taskkey);
+        renderTaskCards();
     } else if (e.target.matches('input')) {
-        const task = e.target.closest('[data-taskKey]');
-        updateCompletedStatus(task.dataset.taskkey);
+        updateCompletedStatus(targetTaskKey.dataset.taskkey);
         renderTaskCards();
     }
 });

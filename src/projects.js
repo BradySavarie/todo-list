@@ -23,8 +23,12 @@ function updateProject(title, projectId) {
     project.title = title;
 }
 
-function deleteProject() {
-    console.log('Project Deleted');
+function deleteProject(projectId) {
+    projectsList.forEach((project, index) => {
+        if (project.id === projectId) {
+            projectsList.splice(index, 1);
+        }
+    });
 }
 
 function getProjectFormData(form) {

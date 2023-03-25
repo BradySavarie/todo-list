@@ -35,7 +35,10 @@ function renderProjectCards() {
             >
                 <div class='flex justify-between gap-4 w-full items-center text-2xl mb-5'>
                     <p>${project.title}</p>
-                    <i id='openUpdateProjectModalBtn' class="hover:cursor-pointer mr-8 fa-solid fa-pen-to-square"></i>
+                    <div class='flex gap-4'>
+                        <i id='openUpdateProjectModalBtn' class="hover:cursor-pointer fa-solid fa-pen-to-square"></i>
+                        <i id="deleteProjectBtn" class="fa-solid fa-trash mr-8"></i>
+                    </div>
                 </div>
                 <div class="h-[1.25px] w-full bg-white"></div>
                 <div  id='projectCardTasksContainer' class="overflow-y-scroll h-full w-full flex flex-col mt-5 gap-3">
@@ -171,8 +174,8 @@ function renderTaskCards() {
                         <button>
                             <i id="openUpdateTaskModalBtn" class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button data-element="openDeleteTaskModalBtn">
-                            <i class="fa-solid fa-trash"></i>
+                        <button>
+                            <i id="deleteTaskBtn" class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>
@@ -199,8 +202,8 @@ function renderTaskCards() {
                         <button>
                             <i id="openUpdateTaskModalBtn" class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button data-element="openDeleteTaskModalBtn">
-                            <i class="fa-solid fa-trash"></i>
+                        <button>
+                            <i id="deleteTaskBtn" class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>
