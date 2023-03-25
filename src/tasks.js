@@ -35,8 +35,15 @@ function updateCompletedStatus(taskId) {
     });
 }
 
-function readTask() {
-    console.log('Task information returned');
+function updateTask(title, dueDate, priority, taskId) {
+    projectsList.forEach((project) => {
+        const task = project.tasks.find((element) => element.taskId === taskId);
+        if (task) {
+            task.title = title;
+            task.dueDate = dueDate;
+            task.priority = priority;
+        }
+    });
 }
 
 function getTaskFormData(form) {
@@ -52,4 +59,18 @@ function getTaskFormData(form) {
     return values;
 }
 
-export { createTask, updateCompletedStatus, readTask, getTaskFormData };
+function getUpdateTaskFormData(form) {
+    const taskFormData = new FormData(form);
+    const [titlePair, dueDatePair, priorityPair, idPair] =
+        taskFormData.entries();
+    const values = [titlePair[1], dueDatePair[1], priorityPair[1], idPair[1]];
+    return values;
+}
+
+export {
+    createTask,
+    updateCompletedStatus,
+    updateTask,
+    getTaskFormData,
+    getUpdateTaskFormData,
+};

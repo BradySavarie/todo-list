@@ -19,7 +19,13 @@ import {
     getProjectFormData,
     getUpdateProjectFormData,
 } from './projects';
-import { createTask, updateCompletedStatus, getTaskFormData } from './tasks';
+import {
+    createTask,
+    updateTask,
+    updateCompletedStatus,
+    getTaskFormData,
+    getUpdateTaskFormData,
+} from './tasks';
 
 // DOM Selections
 const openNewProjectModalBtn = document.getElementById(
@@ -90,6 +96,10 @@ updateProjectForm.addEventListener('submit', (e) => {
 
 updateTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const [title, dueDate, priority, taskId] = getUpdateTaskFormData(e.target);
+    updateTask(title, dueDate, priority, taskId);
+    closeUpdateTaskModal();
+    renderTaskCards();
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {

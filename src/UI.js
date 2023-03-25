@@ -224,6 +224,12 @@ function openUpdateTaskModal(taskId) {
     overlay.classList.remove('hidden');
     updateTaskModal.classList.remove('hidden');
     updateTaskModal.classList.add('flex');
+
+    const taskIdInput = document.createElement('input');
+    taskIdInput.setAttribute('type', 'hidden');
+    taskIdInput.setAttribute('value', `${taskId}`);
+    taskIdInput.setAttribute('name', 'projectId');
+    updateTaskForm.appendChild(taskIdInput);
 }
 
 function updateNewTaskModal() {
