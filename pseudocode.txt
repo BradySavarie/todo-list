@@ -6,7 +6,6 @@
     
     Tasks Page
 
-        - Create the update task modal and make it functional
         - Make tasks deletable
 
     - Make the design responsive

@@ -22,6 +22,7 @@ import {
 import {
     createTask,
     updateTask,
+    deleteTask,
     updateCompletedStatus,
     getTaskFormData,
     getUpdateTaskFormData,
@@ -111,12 +112,15 @@ createNewTaskForm.addEventListener('submit', (e) => {
 });
 
 projectsScroller.addEventListener('click', (e) => {
-    const target = e.target.closest('[data-projectKey]');
+    const targetProjectKey = e.target.closest('[data-projectKey]');
+    const targetTaskKey = e.target.closest('[data-taskKey]');
     if (e.target.id === 'openUpdateProjectModalBtn') {
-        openUpdateProjectModal(target.dataset.projectkey);
+        openUpdateProjectModal(targetProjectKey.dataset.projectkey);
+    } else if (e.target.id === 'deleteTaskBtn') {
+        deleteTask(targetTaskKey.dataset.taskkey);
+        renderProjectCards();
     } else if (e.target.matches('input')) {
-        const task = e.target.closest('[data-taskKey]');
-        updateCompletedStatus(task.dataset.taskkey);
+        updateCompletedStatus(targetTaskKey.dataset.taskkey);
         renderProjectCards();
     }
 });

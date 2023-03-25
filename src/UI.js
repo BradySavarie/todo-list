@@ -60,8 +60,8 @@ function renderProjectCards() {
                         <p id='taskTitle' class="text-xl"><strike>${task.title}</strike></p>
                     </div>
                     <div class="flex gap-4 text-xl">
-                        <button data-element="openDeleteTaskModalBtn">
-                            <i class="fa-solid fa-trash"></i>
+                        <button>
+                            <i id="deleteTaskBtn" class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>
@@ -85,8 +85,8 @@ function renderProjectCards() {
                         <p id='taskTitle' class="text-xl font-normal">${task.title}</p>
                     </div>
                     <div class="flex gap-4 text-xl">
-                        <button data-element="openDeleteTaskModalBtn">
-                            <i class="fa-solid fa-trash"></i>
+                        <button>
+                            <i id="deleteTaskBtn" class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 </div>

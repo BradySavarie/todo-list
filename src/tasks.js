@@ -46,6 +46,15 @@ function updateTask(title, dueDate, priority, taskId) {
     });
 }
 
+function deleteTask(taskId) {
+    projectsList.forEach((project, index) => {
+        const taskIndex = project.tasks.findIndex(
+            (element) => element.taskId === taskId
+        );
+        projectsList[index].tasks.splice(taskIndex, 1);
+    });
+}
+
 function getTaskFormData(form) {
     const taskFormData = new FormData(form);
     const [projectIdPair, titlePair, dueDatePair, priorityPair] =
@@ -71,6 +80,7 @@ export {
     createTask,
     updateCompletedStatus,
     updateTask,
+    deleteTask,
     getTaskFormData,
     getUpdateTaskFormData,
 };
