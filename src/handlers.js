@@ -21,6 +21,7 @@ import {
     deleteProject,
     getProjectFormData,
     getUpdateProjectFormData,
+    storeProjectsList,
 } from './projects';
 import {
     createTask,
@@ -61,6 +62,7 @@ createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title] = getProjectFormData(e.target);
     createProject(title);
+    storeProjectsList();
     updateNewTaskModal();
     closeNewProjectModal();
     renderProjectCards();
@@ -94,6 +96,7 @@ updateProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const [title, projectId] = getUpdateProjectFormData(e.target);
     updateProject(title, projectId);
+    storeProjectsList();
     updateNewTaskModal();
     closeUpdateProjectModal();
     renderProjectCards();
@@ -104,6 +107,7 @@ updateTaskForm.addEventListener('submit', (e) => {
     const [title, dueDate, priority, taskId] = getUpdateTaskFormData(e.target);
     const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
     updateTask(title, formattedDueDate, priority, taskId);
+    storeProjectsList();
     closeUpdateTaskModal();
     renderTaskCards();
 });
@@ -113,6 +117,7 @@ createNewTaskForm.addEventListener('submit', (e) => {
     const [projectId, title, dueDate, priority] = getTaskFormData(e.target);
     const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
     createTask(projectId, title, formattedDueDate, priority);
+    storeProjectsList();
     closeNewTaskModal();
     renderTaskCards();
 });
@@ -124,12 +129,15 @@ projectsScroller.addEventListener('click', (e) => {
         openUpdateProjectModal(targetProjectKey.dataset.projectkey);
     } else if (e.target.id === 'deleteProjectBtn') {
         deleteProject(targetProjectKey.dataset.projectkey);
+        storeProjectsList();
         renderProjectCards();
     } else if (e.target.id === 'deleteTaskBtn') {
         deleteTask(targetTaskKey.dataset.taskkey);
+        storeProjectsList();
         renderProjectCards();
     } else if (e.target.matches('input')) {
         updateCompletedStatus(targetTaskKey.dataset.taskkey);
+        storeProjectsList();
         renderProjectCards();
     }
 });
@@ -140,9 +148,11 @@ tasksContainer.addEventListener('click', (e) => {
         openUpdateTaskModal(targetTaskKey.dataset.taskkey);
     } else if (e.target.id === 'deleteTaskBtn') {
         deleteTask(targetTaskKey.dataset.taskkey);
+        storeProjectsList();
         renderTaskCards();
     } else if (e.target.matches('input')) {
         updateCompletedStatus(targetTaskKey.dataset.taskkey);
+        storeProjectsList();
         renderTaskCards();
     }
 });

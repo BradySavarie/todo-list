@@ -1,4 +1,4 @@
-import { projectsList, readProject } from './projects';
+import { projectsList } from './projects';
 import { readTask } from './tasks';
 
 function openNewProjectModal() {

@@ -1,14 +1,5 @@
     Things to do:
 
-    Projects Page
-
-        - Create a delete button that deletes the project and its contents (no confirmation modal necessary)
-    
-    Tasks Page
-
-        - Make tasks deletable
-
-    - Make the design responsive
     - Add local storage to project
-    - Consider reformatting displayed dates on cards using date-fns
+    - Make the design responsive
     - Maybe add in some sort of filtering functionality to learn how that's done

@@ -1,4 +1,6 @@
-const projectsList = [];
+const storedProjectsListJson = localStorage.getItem('projectsList');
+const storedProjectsList = JSON.parse(storedProjectsListJson);
+const projectsList = storedProjectsList;
 
 class Project {
     constructor(title) {
@@ -11,11 +13,6 @@ class Project {
 function createProject(title) {
     const newProject = new Project(title);
     projectsList.push(newProject);
-}
-
-function readProject(projectId) {
-    const project = projectsList.find((element) => element.id === projectId);
-    return project;
 }
 
 function updateProject(title, projectId) {
@@ -45,12 +42,17 @@ function getUpdateProjectFormData(form) {
     return values;
 }
 
+function storeProjectsList() {
+    const projectsListJson = JSON.stringify(projectsList);
+    localStorage.setItem('projectsList', projectsListJson);
+}
+
 export {
     projectsList,
     createProject,
-    readProject,
     updateProject,
     deleteProject,
     getProjectFormData,
     getUpdateProjectFormData,
+    storeProjectsList,
 };
