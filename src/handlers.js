@@ -1,36 +1,8 @@
 import { format } from 'date-fns';
 
-import {
-    openNewProjectModal,
-    closeNewProjectModal,
-    openUpdateProjectModal,
-    closeUpdateProjectModal,
-    openNewTaskModal,
-    closeNewTaskModal,
-    renderProjectCards,
-    openUpdateTaskModal,
-    closeUpdateTaskModal,
-    renderTaskCards,
-    updateNewTaskModal,
-    toggleView,
-} from './UI';
-import {
-    projectsList,
-    createProject,
-    updateProject,
-    deleteProject,
-    getProjectFormData,
-    getUpdateProjectFormData,
-    storeProjectsList,
-} from './projects';
-import {
-    createTask,
-    updateTask,
-    deleteTask,
-    updateCompletedStatus,
-    getTaskFormData,
-    getUpdateTaskFormData,
-} from './tasks';
+import * as UI from './UI';
+import * as Projects from './projects';
+import * as Tasks from './tasks';
 
 // DOM Selections
 const openNewProjectModalBtn = document.getElementById(
@@ -60,111 +32,115 @@ const overlay = document.getElementById('overlay');
 
 createNewProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [title] = getProjectFormData(e.target);
-    createProject(title);
-    storeProjectsList();
-    updateNewTaskModal();
-    closeNewProjectModal();
-    renderProjectCards();
+    const [title] = Projects.getProjectFormData(e.target);
+    Projects.createProject(title);
+    Projects.storeProjectsList();
+    UI.updateNewTaskModal();
+    UI.closeNewProjectModal();
+    UI.renderProjectCards();
 });
 
 openNewProjectModalBtn.addEventListener('click', () => {
-    openNewProjectModal();
+    UI.openNewProjectModal();
 });
 
 closeNewProjectModalBtn.addEventListener('click', () => {
-    closeNewProjectModal();
+    UI.closeNewProjectModal();
 });
 
 closeUpdateProjectModalBtn.addEventListener('click', () => {
-    closeUpdateProjectModal();
+    UI.closeUpdateProjectModal();
 });
 
 openNewTaskModalBtn.addEventListener('click', () => {
-    openNewTaskModal();
+    UI.openNewTaskModal();
 });
 
 closeNewTaskModalBtn.addEventListener('click', () => {
-    closeNewTaskModal();
+    UI.closeNewTaskModal();
 });
 
 closeUpdateTaskModalBtn.addEventListener('click', () => {
-    closeUpdateTaskModal();
+    UI.closeUpdateTaskModal();
 });
 
 updateProjectForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [title, projectId] = getUpdateProjectFormData(e.target);
-    updateProject(title, projectId);
-    storeProjectsList();
-    updateNewTaskModal();
-    closeUpdateProjectModal();
-    renderProjectCards();
+    const [title, projectId] = Projects.getUpdateProjectFormData(e.target);
+    Projects.updateProject(title, projectId);
+    Projects.storeProjectsList();
+    UI.updateNewTaskModal();
+    UI.closeUpdateProjectModal();
+    UI.renderProjectCards();
 });
 
 updateTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [title, dueDate, priority, taskId] = getUpdateTaskFormData(e.target);
+    const [title, dueDate, priority, taskId] = Tasks.getUpdateTaskFormData(
+        e.target
+    );
     const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
-    updateTask(title, formattedDueDate, priority, taskId);
-    storeProjectsList();
-    closeUpdateTaskModal();
-    renderTaskCards();
+    Tasks.updateTask(title, formattedDueDate, priority, taskId);
+    Projects.storeProjectsList();
+    UI.closeUpdateTaskModal();
+    UI.renderTaskCards();
 });
 
 createNewTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const [projectId, title, dueDate, priority] = getTaskFormData(e.target);
+    const [projectId, title, dueDate, priority] = Tasks.getTaskFormData(
+        e.target
+    );
     const formattedDueDate = format(new Date(dueDate), 'MMM-dd');
-    createTask(projectId, title, formattedDueDate, priority);
-    storeProjectsList();
-    closeNewTaskModal();
-    renderTaskCards();
+    Tasks.createTask(projectId, title, formattedDueDate, priority);
+    Projects.storeProjectsList();
+    UI.closeNewTaskModal();
+    UI.renderTaskCards();
 });
 
 projectsScroller.addEventListener('click', (e) => {
     const targetProjectKey = e.target.closest('[data-projectKey]');
     const targetTaskKey = e.target.closest('[data-taskKey]');
     if (e.target.id === 'openUpdateProjectModalBtn') {
-        openUpdateProjectModal(targetProjectKey.dataset.projectkey);
+        UI.openUpdateProjectModal(targetProjectKey.dataset.projectkey);
     } else if (e.target.id === 'deleteProjectBtn') {
-        deleteProject(targetProjectKey.dataset.projectkey);
-        storeProjectsList();
-        renderProjectCards();
+        Projects.deleteProject(targetProjectKey.dataset.projectkey);
+        Projects.storeProjectsList();
+        UI.renderProjectCards();
     } else if (e.target.id === 'deleteTaskBtn') {
-        deleteTask(targetTaskKey.dataset.taskkey);
-        storeProjectsList();
-        renderProjectCards();
+        Tasks.deleteTask(targetTaskKey.dataset.taskkey);
+        Projects.storeProjectsList();
+        UI.renderProjectCards();
     } else if (e.target.matches('input')) {
-        updateCompletedStatus(targetTaskKey.dataset.taskkey);
-        storeProjectsList();
-        renderProjectCards();
+        Tasks.updateCompletedStatus(targetTaskKey.dataset.taskkey);
+        Projects.storeProjectsList();
+        UI.renderProjectCards();
     }
 });
 
 tasksContainer.addEventListener('click', (e) => {
     const targetTaskKey = e.target.closest('[data-taskKey]');
     if (e.target.id === 'openUpdateTaskModalBtn') {
-        openUpdateTaskModal(targetTaskKey.dataset.taskkey);
+        UI.openUpdateTaskModal(targetTaskKey.dataset.taskkey);
     } else if (e.target.id === 'deleteTaskBtn') {
-        deleteTask(targetTaskKey.dataset.taskkey);
-        storeProjectsList();
-        renderTaskCards();
+        Tasks.deleteTask(targetTaskKey.dataset.taskkey);
+        Projects.storeProjectsList();
+        UI.renderTaskCards();
     } else if (e.target.matches('input')) {
-        updateCompletedStatus(targetTaskKey.dataset.taskkey);
-        storeProjectsList();
-        renderTaskCards();
+        Tasks.updateCompletedStatus(targetTaskKey.dataset.taskkey);
+        Projects.storeProjectsList();
+        UI.renderTaskCards();
     }
 });
 
 nav.addEventListener('click', (e) => {
-    renderProjectCards();
-    renderTaskCards();
-    toggleView(e.target);
+    UI.renderProjectCards();
+    UI.renderTaskCards();
+    UI.toggleView(e.target);
 });
 
 overlay.addEventListener('click', () => {
-    closeNewProjectModal();
-    closeNewTaskModal();
-    closeUpdateProjectModal();
+    UI.closeNewProjectModal();
+    UI.closeNewTaskModal();
+    UI.closeUpdateProjectModal();
 });

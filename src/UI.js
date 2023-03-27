@@ -1,5 +1,4 @@
 import { projectsList } from './projects';
-import { readTask } from './tasks';
 
 function openNewProjectModal() {
     const createNewProjectModal = document.getElementById(

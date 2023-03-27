@@ -1,5 +1,4 @@
     Things to do:
 
-    - Add local storage to project
     - Make the design responsive
     - Maybe add in some sort of filtering functionality to learn how that's done

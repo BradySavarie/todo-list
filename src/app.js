@@ -1,7 +1,7 @@
 import './styles.css';
 import './handlers';
-import { renderProjectCards, renderTaskCards, updateNewTaskModal } from './UI';
+import * as UI from './UI';
 
-updateNewTaskModal();
-renderProjectCards();
-renderTaskCards();
+UI.updateNewTaskModal();
+UI.renderProjectCards();
+UI.renderTaskCards();
