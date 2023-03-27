@@ -7,9 +7,12 @@
 <img width="222" alt="Tasks Page" src="https://user-images.githubusercontent.com/106128212/227796739-1c3412ae-48ce-441c-83d3-3b71a41a02c9.png">
 </div>
 
-<em>This browser-based todo-list application allows users to store their projects and corresponding tasks. It featuers a projects view and a tasks view, local storage capabilities, and the ability to create, update, and delete project lists and task items. This application is designed to be viewed on a mobile device.</em>
+<em>This browser-based todo-list application allows users to store their projects and corresponding tasks. It featuers a projects view and a tasks view, local storage capabilities, and the ability to create, update, and delete project lists and task items.</em>
 
-Live Link:
+Live Link: https://bradysavarie.github.io/todo-list/
 
 <hr>
+
+
+
 
