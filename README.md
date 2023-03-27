@@ -17,7 +17,7 @@ This application is a part of The Odin Projects Full-Stack Javascript curriculum
 
 <h3>What I Learned</h3>
 
-Building this todo list helped alot with my understanding of using Webpack to write and bundle modular code. I feel alot more confident in my ability to debug a bundled file (which was a big hang up on my last project) and make decisions regarding how to best split my code up into manageable chunks. I was able to practice the SOLID principles while designing this app and even came across a few useful topics such as the CRUD and MVC methods of oragnizing code. The concepts of local storage and using external libraries such as date-fns are also demystified now which i'm sure will come in handy for future projects.
+Building this todo list helped alot with my understanding of using Webpack to write and bundle modular code. I feel alot more confident in my ability to debug a bundled file (which was a big hang up on my last project) and make decisions regarding how to best split my code up into manageable chunks. I was able to practice the SOLID principles while designing this app and even came across a few useful topics such as the CRUD and MVC methods of organizing code. The concepts of local storage and using external libraries such as date-fns are also demystified now which i'm sure will come in handy for future projects.
 
 <h3>What I Would Do Differently</h3>
 
