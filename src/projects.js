@@ -1,9 +1,10 @@
-let projectsList = [];
-
 const storedProjectsListJson = localStorage.getItem('projectsList');
 const storedProjectsList = JSON.parse(storedProjectsListJson);
-if (!storedProjectsList === null) {
-    projectsList = storedProjectsList;
+// eslint-disable-next-line import/no-mutable-exports
+let projectsList = storedProjectsList;
+
+if (projectsList === null) {
+    projectsList = [];
 }
 
 class Project {
