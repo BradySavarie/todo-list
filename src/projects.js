@@ -1,6 +1,10 @@
+let projectsList = [];
+
 const storedProjectsListJson = localStorage.getItem('projectsList');
 const storedProjectsList = JSON.parse(storedProjectsListJson);
-const projectsList = storedProjectsList;
+if (!storedProjectsList === null) {
+    projectsList = storedProjectsList;
+}
 
 class Project {
     constructor(title) {
