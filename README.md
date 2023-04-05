@@ -22,6 +22,6 @@ Building this todo list helped alot with my understanding of using Webpack to wr
 <h3>What I Would Do Differently</h3>
 
 Perhaps a better way of approaching this project would have been focusing less on the UI design right from the start. I ended up deciding not to worry about responsivity by the end of this project because I found myself spending alot of time tweaking styles regardless of whether or not it was helping accomplish my primary goal of improving my Javascript ability. I can be a bit of a perfectionist when it comes to visuals so I think building this app taught me that I need to learn to pick my battles and focus my attention on the things that have the biggest impact on whatever the current goal is.
-On my next project I intend to step back to writing normal css with the help of a pre-processor to ensure I don't lose any important foundational skills.
+On my next project I intend to step back to writing normal css with the help of a pre-processor to ensure I don't lose any important foundational skills and help improve my ability to write style more efficiently using sass. I understand how most popular sass features work however putting them into practice is a whole other story and I want to be sure I am capable of doing so.
 
 
